@@ -1,4 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+import AdventThin from '../fonts/advent/adventpro-thin-webfont.woff';
+import Advent from '../fonts/advent/adventpro-light-webfont.woff';
+import AdventBold from '../fonts/advent/adventpro-medium-webfont.woff';
+import ActionMan from '../fonts/action-man/Action_Man-webfont.woff';
+import ActionManBold from '../fonts/action-man/Action_Man_Bold-webfont.woff';
 
 const GlobalStyles = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -54,40 +59,38 @@ const GlobalStyles = createGlobalStyle`
     text-rendering: optimizeLegibility;
   }
 
-  @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap');
-  
 
   @font-face {
     font-family: 'ActionMan';
-    src: url('../fonts/action-man/Action_Man-webfont.woff') format('woff');
+    src: url(${ActionMan}) format('woff');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'ActionMan';
-    src: url('../fonts/action-man/Action_Man_Bold-webfont.woff') format('woff');
+    src: url(${ActionManBold}) format('woff');
     font-weight: bold;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Advent';
-    src: url('../fonts/advent/adventpro-thin-webfont.woff') format('woff');
+    src: url(${AdventThin}) format('woff');
     font-weight: thin;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Advent';
-    src: url('../fonts/advent/adventpro-light-webfont.woff') format('woff');
+    src: url(${Advent}) format('woff');
     font-weight: normal;
     font-style: normal;
   }
 
   @font-face {
     font-family: 'Advent';
-    src: url('../fonts/advent/adventpro-medium-webfont.woff') format('woff');
+    src: url(${AdventBold}) format('woff');
     font-weight: bold;
     font-style: normal;
   }
@@ -110,6 +113,12 @@ const GlobalStyles = createGlobalStyle`
     height: auto;
   }
 
+  #app {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
 `;
 
 export default GlobalStyles;
