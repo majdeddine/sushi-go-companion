@@ -1,6 +1,8 @@
 import path from 'path'
 import ALIASES from './webpack.aliases'
 
+require('dotenv').config()
+
 const { NODE_ENV, PORT } = process.env
 
 const isDev = NODE_ENV === 'development'

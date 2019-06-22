@@ -5,7 +5,9 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import CompressionPlugin from 'compression-webpack-plugin'
 import nodePackage from '../package.json'
 
-const { NODE_ENV } = process.env
+require('dotenv').config()
+
+const { NODE_ENV, JWT_NAME } = process.env
 
 const isDev = NODE_ENV === 'development'
 
@@ -15,6 +17,7 @@ export const env = new webpack.DefinePlugin({
       APP_NAME: JSON.stringify('Sushi Go!'),
       APP_Version: JSON.stringify(nodePackage.version),
       NODE_ENV: JSON.stringify(NODE_ENV),
+      JWT_NAME: JSON.stringify(JWT_NAME),
     },
   },
 })
