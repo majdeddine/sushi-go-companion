@@ -1,4 +1,5 @@
-import '@babel/polyfill'
+import "core-js/stable";
+import "regenerator-runtime/runtime";
 import express from 'express'
 import path from 'path'
 import chalk from 'chalk'
