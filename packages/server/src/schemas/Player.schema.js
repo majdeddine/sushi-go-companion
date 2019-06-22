@@ -2,9 +2,7 @@ const Player = `
   type Player {
     _id: ID!
     score: Int!
-    color: String!
     user: User!
-    createdAt: String
   }
 `;
 

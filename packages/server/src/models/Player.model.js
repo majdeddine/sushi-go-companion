@@ -9,8 +9,6 @@ const PlayerSchema = new Schema({
     ref: 'User',
     autopopulate: true,
   },
-  color: String,
-  createdAt: String,
 });
 
 PlayerSchema.plugin(require('mongoose-autopopulate'));

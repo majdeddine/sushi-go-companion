@@ -1,8 +1,8 @@
 {
-  "name": "gdm-poc",
+  "name": "sushi-go",
   "version": "19.1.0",
   "main": "index.js",
-  "repository": "git@github.com:arsamsarabi/GDM-POC.git",
+  "repository": "",
   "author": "Arsam Sarabi <arsamsarabi@me.com>",
   "license": "MIT",
   "scripts": {
@@ -75,6 +75,7 @@
     "i18next-browser-languagedetector": "^3.0.1",
     "jsx-control-statements": "^3.2.8",
     "jwt-decode": "^2.2.0",
+    "keycode": "^2.2.0",
     "mobx": "^5.10.0",
     "mobx-react": "^6.0.3",
     "polished": "^3.4.0",

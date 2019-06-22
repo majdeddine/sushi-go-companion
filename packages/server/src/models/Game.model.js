@@ -10,9 +10,7 @@ const GameSchema = new Schema({
       autopopulate: true,
     },
   ],
-  expansions: [String],
   createdAt: String,
-  updatedAt: String,
 });
 
 GameSchema.plugin(require('mongoose-autopopulate'));

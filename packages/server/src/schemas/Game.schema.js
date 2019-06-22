@@ -2,7 +2,6 @@ const Game = `
   type Game {
     _id: ID!
     players: [Player!]!
-    expansions: [String!]!
     createdAt: String!
   }
 `;
