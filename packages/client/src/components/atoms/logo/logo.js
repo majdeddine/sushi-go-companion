@@ -1,9 +1,9 @@
 import React from 'react';
 import { oneOf } from 'prop-types';
-import GDMLogo from 'resources/images/main-logo00.svg';
+import SGLogo from 'resources/images/logo.png';
 import StyledLogo from './styledLogo';
 
-const logos = [{ variant: 'white', logo: GDMLogo }];
+const logos = [{ variant: 'white', logo: SGLogo }];
 
 const getLogoByVariant = variant => logos.find(logo => logo.variant === variant);
 

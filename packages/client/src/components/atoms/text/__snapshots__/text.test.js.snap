@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Text/> Should render a Text element with default props 1`] = `
+.c0 {
+  color: #2d3436;
+  font-family: Source Sans Pro,sans-serif;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+<p
+  className="c0"
+  color="#2d3436"
+>
+  Text Paragraph
+</p>
+`;
+
+exports[`<Text/> Should render a Text element with given props 1`] = `
+.c0 {
+  color: hotpink;
+  font-family: Source Sans Pro,sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0;
+  padding: 0;
+}
+
+<p
+  className="c0"
+  color="hotpink"
+>
+  Text Paragraph
+</p>
+`;

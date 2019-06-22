@@ -13,7 +13,6 @@ const defaultProps = {
 const Layout = ({ children }) => {
   return (
     <main>
-      <section>{/* Sidebar */}</section>
       <section>
         <Header />
         {children}

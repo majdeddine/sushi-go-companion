@@ -1,11 +1,12 @@
 import React from 'react';
-import { Logo } from 'atoms';
+import { Logo, Text } from 'atoms';
 import StyledHeader from './styledHeader';
 
-const Header = () => {
+const Header = props => {
   return (
     <StyledHeader>
       <Logo variant="white" size="small" />
+      <Text color="light">Sushi Go!</Text>
     </StyledHeader>
   );
 };
