@@ -1,9 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const dimensions = {
-  small: "34px",
-  medium: "46px",
-  large: "68px",
+  small: '34px',
+  medium: '46px',
+  large: '68px',
 };
 
 const StyledLogo = styled.div`

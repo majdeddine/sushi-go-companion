@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 const GameSchema = new Schema({
   players: [
@@ -13,10 +13,10 @@ const GameSchema = new Schema({
   expansions: [String],
   createdAt: String,
   updatedAt: String,
-})
+});
 
-GameSchema.plugin(require('mongoose-autopopulate'))
+GameSchema.plugin(require('mongoose-autopopulate'));
 
-const GameModel = mongoose.model('Game', GameSchema)
+const GameModel = mongoose.model('Game', GameSchema);
 
-export { GameModel as Game }
+export { GameModel as Game };

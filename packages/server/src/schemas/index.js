@@ -1,7 +1,7 @@
-import { buildSchema } from 'graphql'
-import { UserSchema } from './User.schema'
-import { GameSchema } from './Game.schema'
-import { PlayerSchema } from './Player.schema'
+import { buildSchema } from 'graphql';
+import { UserSchema } from './User.schema';
+import { GameSchema } from './Game.schema';
+import { PlayerSchema } from './Player.schema';
 
 const Schema = buildSchema(`
   ${UserSchema.User}
@@ -24,6 +24,6 @@ const Schema = buildSchema(`
     query: RootQuery,
     mutation: RootMutation
   }
-`)
+`);
 
-export { Schema }
+export { Schema };

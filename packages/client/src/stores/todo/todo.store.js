@@ -1,10 +1,10 @@
-import { observable, action, computed } from "mobx";
+import { observable, action, computed } from 'mobx';
 
 class Store {
   @observable todos = [
     {
-      id: "1",
-      title: "todo or not todo",
+      id: '1',
+      title: 'todo or not todo',
       done: false,
     },
   ];

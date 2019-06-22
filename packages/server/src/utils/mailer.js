@@ -1,15 +1,15 @@
-import nodemailer from 'nodemailer'
+import nodemailer from 'nodemailer';
 
 class LaMailer {
   constructor(config) {
-    this.config = config
-    this.init()
+    this.config = config;
+    this.init();
   }
 
   init = () => {
     const {
       email: { smtp, port, username, password, address, replyTo, isTls },
-    } = this.config
+    } = this.config;
 
     this.transporter = nodemailer.createTransport({
       host: smtp,
@@ -23,36 +23,36 @@ class LaMailer {
         // do not fail on invalid certs
         rejectUnauthorized: false,
       },
-    })
+    });
     this.mailOptions = {
       from: address,
       replyTo,
-    }
-  }
+    };
+  };
 
   printResult = (err, res) => {
     if (err) {
-      console.error('there was an error: ', err)
+      console.error('there was an error: ', err);
     } else {
-      console.log('here is the res: ', res)
+      console.log('here is the res: ', res);
     }
-  }
+  };
 
   sendTestEmail = () => {
     const {
       app: { appName },
-    } = this.config
+    } = this.config;
 
     const options = {
       ...this.mailOptions,
       to: 'arsamsarabi@me.com',
       subject: `Email From ${appName}`,
       text: 'Hello World!',
-    }
+    };
     this.transporter.sendMail(options, (err, res) => {
-      this.printResult(err, res)
-    })
-  }
+      this.printResult(err, res);
+    });
+  };
 
   SendRegistrationEmail = ({ forename, email, username }) => {
     const {
@@ -60,7 +60,7 @@ class LaMailer {
       config: {
         app: { appName },
       },
-    } = this
+    } = this;
     const options = {
       ...mailOptions,
       to: email,
@@ -75,11 +75,11 @@ class LaMailer {
         --------------------------------
         Please email developer@arsamsarabi.co.uk with all your comments and suggestions.
       `,
-    }
+    };
     this.transporter.sendMail(options, (err, res) => {
-      this.printResult(err, res)
-    })
-  }
+      this.printResult(err, res);
+    });
+  };
 }
 
-export { LaMailer }
+export { LaMailer };

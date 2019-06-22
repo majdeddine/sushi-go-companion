@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 const PlayerSchema = new Schema({
   score: Number,
@@ -11,10 +11,10 @@ const PlayerSchema = new Schema({
   },
   color: String,
   createdAt: String,
-})
+});
 
-PlayerSchema.plugin(require('mongoose-autopopulate'))
+PlayerSchema.plugin(require('mongoose-autopopulate'));
 
-const PlayerModel = mongoose.model('Player', PlayerSchema)
+const PlayerModel = mongoose.model('Player', PlayerSchema);
 
-export { PlayerModel as Player }
+export { PlayerModel as Player };

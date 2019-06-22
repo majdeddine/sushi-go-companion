@@ -1,5 +1,5 @@
-import TodoStore from "./todo/todo.store";
-import { todoStoreProps, todoStoreDefaultProps } from "./todo/todo.props";
+import TodoStore from './todo/todo.store';
+import { todoStoreProps, todoStoreDefaultProps } from './todo/todo.props';
 
 const stores = {
   TodoStore,

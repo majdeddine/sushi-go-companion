@@ -1,4 +1,4 @@
-import { shape, number, string, bool, arrayOf } from "prop-types";
+import { shape, number, string, bool, arrayOf } from 'prop-types';
 
 const todoStoreProps = {
   todos: arrayOf(

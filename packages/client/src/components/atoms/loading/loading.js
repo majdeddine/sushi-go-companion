@@ -1,6 +1,6 @@
-import React from "react";
-import loadingGif from "resources/images/spinner.gif";
-import StyledLoading from "./styledLoading";
+import React from 'react';
+import loadingGif from 'resources/images/spinner.gif';
+import StyledLoading from './styledLoading';
 
 const Loading = () => (
   <StyledLoading>

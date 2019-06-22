@@ -1,6 +1,6 @@
-import React from "react";
-import { Logo } from "atoms";
-import StyledHeader from "./styledHeader";
+import React from 'react';
+import { Logo } from 'atoms';
+import StyledHeader from './styledHeader';
 
 const Header = () => {
   return (

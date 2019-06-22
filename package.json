@@ -5,5 +5,8 @@
     "packages/*"
   ],
   "author": "Arsam Sarabi <arsamsarabi@me.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "prettier": "prettier 'packages/*/src/**/*.js' --write"
+  }
 }

@@ -1,5 +1,5 @@
-import { rgba, darken, lighten } from "polished";
-import colors from "./colors";
+import { rgba, darken, lighten } from 'polished';
+import colors from './colors';
 
 const Theme = {
   palette: {
@@ -39,12 +39,12 @@ const Theme = {
     small: `0 0 15px 1px ${rgba(colors.black, 0.1)}`,
   },
   transition: {
-    fast: "0.3s all ease-in-out 0.1s",
+    fast: '0.3s all ease-in-out 0.1s',
   },
   radius: {
-    small: "6px",
-    medium: "12px",
-    large: "24px",
+    small: '6px',
+    medium: '12px',
+    large: '24px',
   },
   font: {
     light: colors.white,

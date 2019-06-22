@@ -12,7 +12,7 @@ const User = `
     createdAt: String!
     updatedAt: String
   }
-`
+`;
 
 const UserQueries = `
   allUsers: [User]!
@@ -26,7 +26,7 @@ const UserQueries = `
     password: String!
   ): String!
   
-`
+`;
 
 const UserMutations = `
   register(
@@ -59,12 +59,12 @@ const UserMutations = `
     updatedAt: String
   ): User!
   
-`
+`;
 
 const UserSchema = {
   User,
   UserQueries,
   UserMutations,
-}
+};
 
-export { UserSchema }
+export { UserSchema };

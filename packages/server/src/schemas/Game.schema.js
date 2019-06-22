@@ -5,12 +5,12 @@ const Game = `
     expansions: [String!]!
     createdAt: String!
   }
-`
+`;
 const GameQueries = `
   allGames: [Game]!
   
   findGameById(_id: ID!): Game
-`
+`;
 
 const GameMutations = `
   addGame(
@@ -27,12 +27,12 @@ const GameMutations = `
   deleteGame(
     _id: ID!
   ): Game!
-`
+`;
 
 const GameSchema = {
   Game,
   GameQueries,
   GameMutations,
-}
+};
 
-export { GameSchema }
+export { GameSchema };

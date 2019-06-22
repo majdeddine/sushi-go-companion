@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { observer, inject } from "mobx-react";
-import { withTranslation } from "react-i18next";
-import { proptypes } from "stores";
+import React, { Component } from 'react';
+import { observer, inject } from 'mobx-react';
+import { withTranslation } from 'react-i18next';
+import { proptypes } from 'stores';
 
 @observer
 @inject(stores => ({
@@ -13,7 +13,7 @@ class Home extends Component {
     const { todos, remaining, t } = this.props;
     return (
       <div>
-        <p>{t("Home")}</p>
+        <p>{t('Home')}</p>
         <p>{todos[0].title}</p>
         <p>
           Remaining:

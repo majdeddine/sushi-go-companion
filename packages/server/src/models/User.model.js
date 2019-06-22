@@ -1,6 +1,6 @@
-import mongoose from 'mongoose'
+import mongoose from 'mongoose';
 
-const { Schema } = mongoose
+const { Schema } = mongoose;
 
 const UserSchema = new Schema({
   forename: String,
@@ -39,10 +39,10 @@ const UserSchema = new Schema({
   ],
   createdAt: String,
   updatedAt: String,
-})
+});
 
-UserSchema.plugin(require('mongoose-autopopulate'))
+UserSchema.plugin(require('mongoose-autopopulate'));
 
-const UserModel = mongoose.model('User', UserSchema)
+const UserModel = mongoose.model('User', UserSchema);
 
-export { UserModel as User }
+export { UserModel as User };

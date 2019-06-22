@@ -1,4 +1,4 @@
-import { rgba } from "polished";
+import { rgba } from 'polished';
 
 export const pageContainer = theme => `
   background-color: ${rgba(theme.white, 0.75)};
