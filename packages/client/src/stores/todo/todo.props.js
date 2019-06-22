@@ -1,4 +1,4 @@
-import { shape, number, string, bool, arrayOf } from 'prop-types';
+import { shape, number, string, bool, arrayOf } from 'prop-types'
 
 const todoStoreProps = {
   todos: arrayOf(
@@ -9,11 +9,11 @@ const todoStoreProps = {
     }),
   ),
   remaining: number,
-};
+}
 
 const todoStoreDefaultProps = {
   todos: [],
   remaining: undefined,
-};
+}
 
-export { todoStoreProps, todoStoreDefaultProps };
+export { todoStoreProps, todoStoreDefaultProps }

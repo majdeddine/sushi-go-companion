@@ -1,4 +1,4 @@
-import { observable, action, computed } from 'mobx';
+import { observable, action, computed } from 'mobx'
 
 class Store {
   @observable todos = [
@@ -7,19 +7,19 @@ class Store {
       title: 'todo or not todo',
       done: false,
     },
-  ];
+  ]
 
   @action addTodo = todo => {
     this.todos.push({
       id: Math.random() * 9999,
       ...todo,
-    });
-  };
+    })
+  }
 
   @computed get remaining() {
-    return this.todos.filter(todo => !todo.done);
+    return this.todos.filter(todo => !todo.done)
   }
 }
 
-const TodoStore = new Store();
-export default TodoStore;
+const TodoStore = new Store()
+export default TodoStore

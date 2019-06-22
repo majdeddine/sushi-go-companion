@@ -1,61 +1,88 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import keycode from 'keycode'
+import { observer, inject } from 'mobx-react'
+import { withTranslation } from 'react-i18next'
 import Card from '@material-ui/core/Card'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import StyledLogin from './styledLogin'
 
-const Login = () => {
-  return (
-    <StyledLogin>
-              <Card className="content">
+@observer
+@inject(stores => ({
+  username: stores.LoginStore.username,
+  password: stores.LoginStore.password,
+  login: stores.LoginStore.login,
+}))
+class Login extends Component {
+  handleOnChange = event => {
+    this.props[event.target.name] = event.target.value
+  }
+
+  handleOnLogin = event => {
+    const { login } = this.props
+    if (keycode(event) === 'enter') {
+      login()
+    }
+  }
+
+  navigateToRegister = () => {
+    const { history } = this.props
+    history.push('/register')
+  }
+
+  render() {
+    const { t, username, password } = this.props
+    return (
+      <StyledLogin>
+        <Card className="content">
           <TextField
-            id="username"
+            id={t('username')}
             name="username"
-            label="Username"
+            label={t('username')}
             value={username}
             onChange={this.handleOnChange}
             autoFocus
             fullWidth
-            autoComplete="username"
-            onKeyPress={event => {
-              if (keycode(event) === 'enter') {
-                this.handleOnLogin()
-              }
-            }}
+            autoComplete={t('username')}
+            onKeyPress={this.handleOnLogin}
           />
           <TextField
             type="password"
-            label="Password"
+            label={t('password')}
             name="password"
-            id="password"
+            id={t('password')}
             value={password}
             onChange={this.handleOnChange}
-            autoComplete="password"
+            autoComplete={t('password')}
             fullWidth
-            onKeyPress={event => {
-              if (keycode(event) === 'enter') {
-                this.handleOnLogin()
-              }
-            }}
+            onKeyPress={this.handleOnLogin}
           />
+
+          <div className="actions">
+            <Button onClick={this.navigateToRegister} variant="outlined">
+              {t('register')}
+            </Button>
+            <Button onClick={this.handleOnLogin} variant="contained" color="primary">
+              {t('login')}
+            </Button>
+          </div>
         </Card>
-        <div className="actions">
-          <Button onClick={this.navigateToRegister} variant="outlined">
-            Register
-          </Button>
-          <Button onClick={() => this.handleOnLogin()} variant="contained" color="primary">
-            Login
-          </Button>
-        </div>
-        </Card>
-    </StyledLogin>
-  )
+      </StyledLogin>
+    )
+  }
 }
 
-Login.propTypes = {}
+Login.propTypes = {
+  t: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  password: PropTypes.string.isRequired,
+  login: PropTypes.func.isRequired,
+  history: PropTypes.object,
+}
 
-Login.defaultProps = {}
+Login.defaultProps = {
+  history: {},
+}
 
-export default Login
+export default withTranslation()(Login)

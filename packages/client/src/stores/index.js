@@ -1,13 +1,3 @@
-import TodoStore from './todo/todo.store';
-import { todoStoreProps, todoStoreDefaultProps } from './todo/todo.props';
+import LoginStore from './login.store'
 
-const stores = {
-  TodoStore,
-};
-
-const proptypes = {
-  todoStoreProps,
-  todoStoreDefaultProps,
-};
-
-export { stores, proptypes };
+export { LoginStore }
