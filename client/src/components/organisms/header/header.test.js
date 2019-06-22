@@ -1,6 +1,6 @@
-import React from 'react';
-import { renderWithTheme } from '../../../config/testHelper';
-import StyledHeader from './styledHeader';
+import React from 'react'
+import { renderWithTheme } from '../../../config/testHelper'
+import StyledHeader from './styledHeader'
 
 describe('<StyledHeader/>', () => {
   it('Should render a StyledHeader element with default props', () => {
@@ -10,7 +10,7 @@ describe('<StyledHeader/>', () => {
           🐰
         </span>
       </StyledHeader>,
-    ).toJSON();
-    expect(component).toMatchSnapshot();
-  });
-});
+    ).toJSON()
+    expect(component).toMatchSnapshot()
+  })
+})

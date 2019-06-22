@@ -1,9 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
-import AdventThin from '../fonts/advent/adventpro-thin-webfont.woff';
-import Advent from '../fonts/advent/adventpro-light-webfont.woff';
-import AdventBold from '../fonts/advent/adventpro-medium-webfont.woff';
-import ActionMan from '../fonts/action-man/Action_Man-webfont.woff';
-import ActionManBold from '../fonts/action-man/Action_Man_Bold-webfont.woff';
+import { createGlobalStyle } from 'styled-components'
+import AdventThin from '../fonts/advent/adventpro-thin-webfont.woff'
+import Advent from '../fonts/advent/adventpro-light-webfont.woff'
+import AdventBold from '../fonts/advent/adventpro-medium-webfont.woff'
+import ActionMan from '../fonts/action-man/Action_Man-webfont.woff'
+import ActionManBold from '../fonts/action-man/Action_Man_Bold-webfont.woff'
 
 const GlobalStyles = createGlobalStyle`
   html, body, div, span, applet, object, iframe,
@@ -119,6 +119,6 @@ const GlobalStyles = createGlobalStyle`
     overflow-x: hidden;
     overflow-y: auto;
   }
-`;
+`
 
-export default GlobalStyles;
+export default GlobalStyles

@@ -1,5 +1,5 @@
-import { rgba, darken, lighten } from 'polished';
-import colors from './colors';
+import { rgba, darken, lighten } from 'polished'
+import colors from './colors'
 
 const Theme = {
   palette: {
@@ -53,6 +53,6 @@ const Theme = {
   typography: {
     useNextVariants: true,
   },
-};
+}
 
-export { Theme };
+export { Theme }

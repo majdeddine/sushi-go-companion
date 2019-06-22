@@ -18,6 +18,6 @@ const colors = {
     dark: '#263642',
   },
   lightBlue: '#f5f8fa',
-};
+}
 
-export default colors;
+export default colors

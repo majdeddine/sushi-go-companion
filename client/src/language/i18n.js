@@ -1,6 +1,6 @@
-import i18n from 'i18next';
-import LanguageDetector from 'i18next-browser-languagedetector';
-import en from './en/en';
+import i18n from 'i18next'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import en from './en/en'
 
 i18n.use(LanguageDetector).init({
   // we init with resources
@@ -24,6 +24,6 @@ i18n.use(LanguageDetector).init({
   react: {
     wait: true,
   },
-});
+})
 
-export default i18n;
+export default i18n

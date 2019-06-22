@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 const StyledHeader = styled.header`
   height: 50px;
@@ -10,6 +10,6 @@ const StyledHeader = styled.header`
   & > div:first-of-type {
     margin-right: 8px;
   }
-`;
+`
 
-export default StyledHeader;
+export default StyledHeader

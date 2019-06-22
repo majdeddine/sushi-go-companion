@@ -1,7 +1,7 @@
 // ATOMS
-import { Logo, Loading } from './atoms';
+import { Logo, Loading } from './atoms'
 // MOLECULES
 // ORGANISMS
-import { Header, Layout } from './organisms';
+import { Header, Layout } from './organisms'
 
-export { Header, Layout, Logo, Loading };
+export { Header, Layout, Logo, Loading }

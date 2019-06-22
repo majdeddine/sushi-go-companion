@@ -1,6 +1,6 @@
-import React from 'react';
-import { Logo, Text } from 'atoms';
-import StyledHeader from './styledHeader';
+import React from 'react'
+import { Logo, Text } from 'atoms'
+import StyledHeader from './styledHeader'
 
 const Header = props => {
   return (
@@ -8,7 +8,7 @@ const Header = props => {
       <Logo variant="white" size="small" />
       <Text color="light">Sushi Go!</Text>
     </StyledHeader>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header
