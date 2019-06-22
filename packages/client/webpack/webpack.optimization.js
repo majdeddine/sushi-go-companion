@@ -1,4 +1,4 @@
-import UglifyJsPlugin from "uglifyjs-webpack-plugin";
+import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
 
 export const optimization = {
   minimizer: [new UglifyJsPlugin()],
@@ -22,7 +22,7 @@ export const optimization = {
   //   },
   // },
   splitChunks: {
-    chunks: "all",
-    name: "vendor",
+    chunks: 'all',
+    name: 'vendor',
   },
-};
+}
