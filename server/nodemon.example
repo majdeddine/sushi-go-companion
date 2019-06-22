@@ -4,12 +4,10 @@
   "verbose": true,
   "watch": ["src"],
   "env": {
-    "APP_NAME": "carcassensyne",
+    "APP_NAME": "Shushi Go!",
     "NODE_ENV": "development",
     "PORT": 4100,
     "API_KEY": "",
-    "DB_USER": "",
-    "DB_PASS": "",
     "JWT_SECRET": "",
     "SMTP": "",
     "EMAIL_ADDRESS": "",

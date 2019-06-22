@@ -5,3 +5,5 @@ coverage-reports
 .DS_Store
 .favorites.json
 .vscode/settings.json
+nodemon.json
+.env
