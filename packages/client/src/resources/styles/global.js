@@ -27,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     display: block;
   }
   body {
-    line-height: 1;
+    line-height: 1.4;
   }
   ol, ul {
     list-style: none;
@@ -56,14 +56,51 @@ const GlobalStyles = createGlobalStyle`
 
   @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap');
   
+
+  @font-face {
+    font-family: 'ActionMan';
+    src: url('../fonts/action-man/Action_Man-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'ActionMan';
+    src: url('../fonts/action-man/Action_Man_Bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Advent';
+    src: url('../fonts/advent/adventpro-thin-webfont.woff') format('woff');
+    font-weight: thin;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Advent';
+    src: url('../fonts/advent/adventpro-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Advent';
+    src: url('../fonts/advent/adventpro-medium-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+
+
   html, body {
     width: 100vw;
     min-height: 100vh;
   }
 
   body {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 300;
+    font-family: 'Advent', sans-serif;
+    font-weight: normal;
     font-size: 18px;
     overflow: hidden;
   }

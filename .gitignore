@@ -3,3 +3,4 @@ dist
 coverage-reports
 *.report.html
 .DS_Store
+.favorites.json
