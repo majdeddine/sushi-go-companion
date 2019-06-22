@@ -1,0 +1,21 @@
+{
+  "restartable": "rs",
+  "ignore": [".git", "node_modules"],
+  "verbose": true,
+  "watch": ["src"],
+  "env": {
+    "APP_NAME": "carcassensyne",
+    "NODE_ENV": "development",
+    "PORT": 4100,
+    "API_KEY": "",
+    "DB_USER": "devadmin",
+    "DB_PASS": "X657a0Jw",
+    "JWT_SECRET": "csapp|te4mf1sh",
+    "SMTP": "smtp.arsamsarabi.co.uk",
+    "EMAIL_ADDRESS": "developer@arsamsarabi.co.uk",
+    "EMAIL_PASSWORD": "klXsyai@R$84",
+    "EMAIL_PORT": 465
+  },
+  "ext": "js json",
+  "exec": "babel-node --inspect ./src/index.js"
+}

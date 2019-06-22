@@ -1,0 +1,9 @@
+{
+  "name": "sushi-go",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "author": "Arsam Sarabi <arsamsarabi@me.com>",
+  "license": "MIT"
+}

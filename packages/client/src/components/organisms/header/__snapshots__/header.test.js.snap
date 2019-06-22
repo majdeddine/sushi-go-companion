@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<StyledHeader/> Should render a StyledHeader element with default props 1`] = `
+<header
+  className="styledHeader__StyledHeader-ndunuw-0 jZMXGl"
+>
+  <span
+    aria-label="bunny emoji"
+    role="img"
+  >
+    🐰
+  </span>
+</header>
+`;

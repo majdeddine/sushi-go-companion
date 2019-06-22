@@ -1,0 +1,46 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon",
+    "build": "rimraf ./dist && babel src -d ./dist",
+    "start": "node dist/index.js",
+    "build:templates": "mju --build -i ./src/utils/mailer/templates -o ./dist/utils/mailer/templates",
+    "watch:templates": "mju --watch -i ./src/utils/mailer/templates -o ./dist/utils/mailer/templates",
+    "test:email": "mju --send -o ./dist/utils/mailer/templates",
+    "postinstall": "yarn build"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.2.5",
+    "axios": "^0.18.0",
+    "bcrypt": "^3.0.3",
+    "body-parser": "^1.18.3",
+    "chalk": "^2.4.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "handlebars": "^4.0.12",
+    "jsonwebtoken": "^8.4.0",
+    "mongoose": "^5.4.5",
+    "mongoose-autopopulate": "^0.9.1",
+    "nodemailer": "^5.1.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.0",
+    "@babel/preset-env": "^7.2.3",
+    "babel-eslint": "^10.0.1",
+    "babel-plugin-module-resolver": "^3.1.2",
+    "concurrently": "^4.1.0",
+    "eslint-config-arsam": "^1.8.4",
+    "nodemon": "^1.18.9",
+    "rimraf": "^2.6.3"
+  }
+}

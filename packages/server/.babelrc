@@ -1,0 +1,17 @@
+{
+  "presets": ["@babel/preset-env"],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "models": "./src/models/index.js",
+          "resolvers": "./src/resolvers/index.js",
+          "schemas": "./src/schemas/index.js",
+          "mailer": "./src/utils/mailer.js"
+        }
+      }
+    ],
+    "@babel/plugin-proposal-class-properties"
+  ]
+}
