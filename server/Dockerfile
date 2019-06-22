@@ -6,13 +6,13 @@ WORKDIR /usr/src/server
 
 COPY package.json /usr/src/server/
 
+COPY yarn.lock /usr/src/server/
+
 RUN yarn
 
 COPY . /usr/src/server
 
 RUN yarn build
-
-RUN yarn build:templates
 
 EXPOSE 4100
 
