@@ -1,5 +1,5 @@
 import React from 'react'
-import { Logo, Text } from 'atoms'
+import { Logo, Text, Burger } from 'atoms'
 import StyledHeader from './styledHeader'
 
 const Header = () => {
@@ -9,6 +9,7 @@ const Header = () => {
       <Text color="light" weight="bold">
         Sushi Go!
       </Text>
+      <Burger />
     </StyledHeader>
   )
 }

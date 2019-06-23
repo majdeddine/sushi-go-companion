@@ -46,8 +46,8 @@ const Age = {
     const months = ageObj.months > 0 ? `${ageObj.months}m` : undefined
     const days = ageObj.days > 0 ? `${ageObj.days}d` : undefined
     return !years && !months && !days
-      ? 'List Awesome age: joined today!'
-      : `List Awesome age: ${years || ''}${months || ''}${days || ''}`
+      ? 'Sushi Go age: joined today!'
+      : `Sushi Go age: ${years || ''}${months || ''}${days || ''}`
   },
 }
 
