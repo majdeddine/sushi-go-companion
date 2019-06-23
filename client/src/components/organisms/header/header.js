@@ -6,7 +6,9 @@ const Header = () => {
   return (
     <StyledHeader>
       <Logo variant="white" size="small" />
-      <Text color="light">Sushi Go!</Text>
+      <Text color="light" weight="bold">
+        Sushi Go!
+      </Text>
     </StyledHeader>
   )
 }

@@ -14,6 +14,7 @@ import StyledLogin from './styledLogin'
     username: stores.LoginStore.username,
     password: stores.LoginStore.password,
     isLoading: stores.LoginStore.isLoading,
+    isValid: stores.LoginStore.isValid,
     login: stores.LoginStore.login,
     setUsername: stores.LoginStore.setUsername,
     setPassword: stores.LoginStore.setPassword,
@@ -26,7 +27,7 @@ class Login extends Component {
 
   handleOnLogin = event => {
     const { login } = this.props
-    if (keycode(event) === 'enter') {
+    if (!keycode(event) || keycode(event) === 'enter') {
       login()
     }
   }
@@ -37,7 +38,7 @@ class Login extends Component {
   }
 
   render() {
-    const { t, username, password, isLoading, setUsername, setPassword } = this.props
+    const { t, username, password, isLoading, setUsername, setPassword, isValid } = this.props
     return (
       <StyledLogin>
         <Choose>
@@ -71,7 +72,12 @@ class Login extends Component {
                 <Button onClick={this.navigateToRegister} variant="outlined">
                   {t('register')}
                 </Button>
-                <Button onClick={this.handleOnLogin} variant="contained" color="primary">
+                <Button
+                  onClick={this.handleOnLogin}
+                  variant="contained"
+                  color="primary"
+                  disabled={!isValid}
+                >
                   {t('login')}
                 </Button>
               </div>
@@ -89,6 +95,7 @@ Login.propTypes = {
   username: PropTypes.string,
   password: PropTypes.string,
   isLoading: PropTypes.bool,
+  isValid: PropTypes.bool,
   login: PropTypes.func,
   setUsername: PropTypes.func,
   setPassword: PropTypes.func,
@@ -99,6 +106,7 @@ Login.defaultProps = {
   username: '',
   password: '',
   isLoading: false,
+  isValid: false,
   login() {},
   setUsername() {},
   setPassword() {},

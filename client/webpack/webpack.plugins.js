@@ -7,7 +7,7 @@ const nodePackage = require('../package.json')
 
 require('dotenv').config()
 
-const { NODE_ENV, JWT_NAME } = process.env
+const { NODE_ENV, JWT_NAME, API_URL } = process.env
 
 const isDev = NODE_ENV === 'development'
 
@@ -18,6 +18,7 @@ const env = new webpack.DefinePlugin({
       APP_Version: JSON.stringify(nodePackage.version),
       NODE_ENV: JSON.stringify(NODE_ENV),
       JWT_NAME: JSON.stringify(JWT_NAME),
+      API_URL: JSON.stringify(API_URL),
     },
   },
 })

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Theme as defaultTheme } from '../../../resources/styles/theme'
 
 const Text = styled.p(props => {
-  const { weight, color } = props
+  const { weight, color, size } = props
   const theme = {
     ...defaultTheme,
     ...props.theme,
@@ -19,10 +19,20 @@ const Text = styled.p(props => {
     }
     return colors[choice]
   }
+  const mapSize = choice => {
+    const sizes = {
+      'x-small': '0.75rem',
+      small: '1rem',
+      medium: '1.25rem',
+      large: '2rem',
+      'x-large': '2.75rem',
+    }
+    return sizes[choice]
+  }
 
   return `
-    color: ${mapColor(color)}
-    font-size: 18px;
+    color: ${mapColor(color)};
+    font-size: ${mapSize(size)};
     font-weight: ${weight};
     line-height: 1.4;
     margin: 0;
@@ -31,13 +41,15 @@ const Text = styled.p(props => {
 })
 
 Text.propTypes = {
+  size: PropTypes.oneOf(['x-small', 'small', 'medium', 'large', 'x-large']),
   color: PropTypes.oneOf(['light', 'dark', 'primary', 'secondary', 'success', 'danger']),
-  weight: PropTypes.oneOf(['thin', 'medium', 'bold']),
+  weight: PropTypes.oneOf(['thin', 'normal', 'bold']),
 }
 
 Text.defaultProps = {
+  size: 'medium',
   color: 'dark',
-  weight: 'medium',
+  weight: 'normal',
 }
 
 export default Text

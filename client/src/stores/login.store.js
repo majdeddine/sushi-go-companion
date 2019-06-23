@@ -1,14 +1,24 @@
-import { observable, action } from 'mobx'
+import { observable, action, computed } from 'mobx'
 import { toast } from 'react-toastify'
 import { handleLogin } from 'utils/auth'
 import { api } from './helper'
 
+const MIN_USERNAME_LENGTH = 3
+const MIN_PASSWORD_LENGTH = 6
 class Store {
   @observable username = ''
 
   @observable password = ''
 
   @observable isLoading = false
+
+  @observable isLoggedIn = false
+
+  @computed get isValid() {
+    return (
+      MIN_USERNAME_LENGTH <= this.username.length && MIN_PASSWORD_LENGTH <= this.password.length
+    )
+  }
 
   @action.bound setUsername(event) {
     this.username = event.target.value
@@ -45,6 +55,6 @@ class Store {
   }
 }
 
-const AuthStore = new Store()
+const LoginStore = new Store()
 
-export default AuthStore
+export default LoginStore

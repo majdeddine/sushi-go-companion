@@ -104,7 +104,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     font-family: 'Advent', sans-serif;
     font-weight: normal;
-    font-size: 18px;
+    font-size: 16px;
     overflow: hidden;
   }
 
