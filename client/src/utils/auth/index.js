@@ -18,9 +18,8 @@ export const setToken = token => {
 // REMOVE
 export const removeToken = () => localStorage.removeItem(TOKEN_NAME)
 
-export const handleLogin = (response, history) => {
-  const res = response.data
-  setToken(res.data.login)
+export const handleLogin = (data, history) => {
+  setToken(data.login)
   history.replace('/')
 }
 

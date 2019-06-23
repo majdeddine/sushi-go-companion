@@ -51,7 +51,7 @@ app.use(
     schema: Schema,
     rootValue: Resolvers,
     graphiql: process.env.NODE_ENV === 'development',
-    formatError(err) {
+    customFormatErrorFn(err) {
       if (!err.originalError) {
         return err
       }

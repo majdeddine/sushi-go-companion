@@ -5,7 +5,7 @@ import { getIdFromToken } from 'utils/auth'
 import { api } from './helper'
 
 class Store {
-  @observable me = {}
+  @observable me = undefined
 
   @observable isLoading = false
 
@@ -27,14 +27,11 @@ class Store {
                     username
                   }
                 }
-                expansions
               }
               participations {
                 score,
-                color,
               }
               createdAt
-              updatedAt
               scope
             }
           }
@@ -44,7 +41,7 @@ class Store {
     try {
       const response = await api(meQuery)
       this.isLoading = false
-      this.me = response.json()
+      this.me = response.data.data.me
     } catch (err) {
       this.isLoading = false
       toast.error(`Error! ${err}`, {

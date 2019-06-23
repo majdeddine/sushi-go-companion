@@ -25,11 +25,10 @@ class Profile extends Component {
 
   render() {
     const { me, isLoading } = this.props
-
     return (
       <StyledProfile>
         <Choose>
-          <When condition={isLoading}>
+          <When condition={isLoading || !me}>
             <Loading />
           </When>
           <Otherwise>
@@ -44,12 +43,14 @@ class Profile extends Component {
 
 Profile.propTypes = {
   me: PropTypes.shape({}),
+  myData: PropTypes.shape({}),
   isLoading: PropTypes.bool,
   loadMyData: PropTypes.func,
 }
 
 Profile.defaultProps = {
-  me: {},
+  me: undefined,
+  myData: undefined,
   isLoading: false,
   loadMyData() {},
 }

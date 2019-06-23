@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Age } from 'utils'
 import { lighten } from 'polished'
@@ -8,7 +9,6 @@ const Badge = props => {
   const { user } = props
   const avatar = getAvatarByName(user.avatar)
   const age = Age.getAge(user.createdAt)
-  console.log({ user })
   return (
     <Wrapper>
       <div className="avatar">
@@ -29,6 +29,12 @@ const Badge = props => {
     </Wrapper>
   )
 }
+
+Badge.propTypes = {
+  user: PropTypes.shape({}).isRequired,
+}
+
+Badge.defaultProps = {}
 
 export { Badge }
 
