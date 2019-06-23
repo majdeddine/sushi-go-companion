@@ -13,6 +13,7 @@ import GlobalStyles from 'resources/styles/global'
 import ToastifyStyles from 'resources/styles/toastify'
 
 const Login = lazy(() => import('pages/login/login'))
+const Profile = lazy(() => import('pages/profile/profile.js'))
 
 const muiTheme = createMuiTheme(Theme)
 
@@ -29,10 +30,10 @@ const App = () => (
               <Layout>
                 <Suspense fallback={<Loading />}>
                   <Switch>
-                    {/* <Route exact path="/profile" component={ProfilePage} /> */}
+                    <Route exact path="/profile" component={Profile} />
                     <Route exact path="/login" component={Login} />
                     {/* <Route exact path="/register" component={RegisterPage} /> */}
-                    <Route exact path="/" render={() => <Redirect to="/login" />} />
+                    <Route exact path="/" render={() => <Redirect to="/profile" />} />
                     {/* <Route render={props => <ErrorPage {...props} />} /> */}
                   </Switch>
                 </Suspense>

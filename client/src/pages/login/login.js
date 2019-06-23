@@ -42,7 +42,9 @@ class Login extends Component {
     return (
       <StyledLogin>
         <Choose>
-          <When condition={isLoading}>Loading ...</When>
+          <When condition={isLoading}>
+            <Loading />
+          </When>
           <Otherwise>
             <Card className="content">
               <TextField
