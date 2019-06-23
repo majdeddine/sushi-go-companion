@@ -9,7 +9,7 @@ class Store {
 
   @observable isLoading = false
 
-  @action getUser = async () => {
+  @action loadMyData = async () => {
     const _id = getIdFromToken()
     const meQuery = {
       query: `
@@ -55,6 +55,6 @@ class Store {
   }
 }
 
-const LoginStore = new Store()
+const UserStore = new Store()
 
-export default LoginStore
+export default UserStore

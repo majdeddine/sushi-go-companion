@@ -47,8 +47,8 @@ class Store {
       })
     } catch (err) {
       this.isLoading = false
-      console.log(err)
-      toast.error(`Error! ${err}`, {
+      console.error(err)
+      toast.error(`Error! ${err[0].message}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,
       })

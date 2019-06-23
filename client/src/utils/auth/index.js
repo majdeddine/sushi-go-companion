@@ -4,33 +4,26 @@ import { TOKEN_NAME } from './consts'
 
 // IS
 export const isToken = () => typeof localStorage.getItem(TOKEN_NAME) === 'string'
+
 // GET
 export const getToken = () => (isToken() ? localStorage.getItem(TOKEN_NAME) : undefined)
+
 export const getIdFromToken = () => decode(getToken())._id
+
 // SET
 export const setToken = token => {
   localStorage.setItem(TOKEN_NAME, token)
 }
+
 // REMOVE
 export const removeToken = () => localStorage.removeItem(TOKEN_NAME)
+
 export const handleLogin = (response, history) => {
-  const res = { ...response }
-  debugger
-  if (res.data) {
-    // console.group('%cAuth handleLogin', 'color: green')
-    // console.log({ response })
-    // console.groupEnd()
-    if (typeof res.data.login === 'string') {
-      setToken(res.data.login)
-      history.replace('/')
-    }
-  } else if (res.error) {
-    // const token = response.data.login
-    // console.group('%cAuth handleLogin', 'color: tomato')
-    // console.log({ response })
-    // console.groupEnd()
-  }
+  const res = response.data
+  setToken(res.data.login)
+  history.replace('/')
 }
+
 export const handleRegistration = (response, history) => {
   const res = { ...response }
   if (res.data) {
@@ -48,6 +41,7 @@ export const handleRegistration = (response, history) => {
     // console.groupEnd()
   }
 }
+
 export const validateToken = () => {
   if (isToken()) {
     const { exp } = decode(getToken())
@@ -57,6 +51,7 @@ export const validateToken = () => {
   }
   return false
 }
+
 export const handleLogout = history => {
   removeToken()
   history.push('/')

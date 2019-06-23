@@ -53,13 +53,13 @@ const Wrapper = styled.div`
     h1 {
       font-size: 32px;
       font-weight: 400;
-      color: ${({ theme }) => theme.text.dark};
+      color: ${({ theme }) => theme.palette.text.dark};
       font-family: ${({ theme }) => theme.fontHeading};
     }
     span.laAge {
       font-size: 0.8rem;
       align-self: flex-end;
-      color: ${({ theme }) => lighten(0.3, theme.grey)};
+      color: ${({ theme }) => lighten(0.3, theme.palette.text.dark)};
       margin-top: 3px;
     }
   }

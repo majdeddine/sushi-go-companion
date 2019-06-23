@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { observer, inject, PropTypes } from 'mobx-react'
+import PropTypes from 'prop-types'
+import { observer, inject } from 'mobx-react'
 import { withTranslation } from 'react-i18next'
 import WithAuth from 'utils/auth/withAuthHOC'
 import { Loading } from 'components'
@@ -9,19 +10,16 @@ import StyledProfile from './styles'
 @observer
 @inject(stores => {
   return {
-    me: stores.LoginStore.me,
-    isLoading: stores.LoginStore.isLoading,
-    getUser: stores.LoginStore.getUser,
+    me: stores.UserStore.me,
+    isLoading: stores.UserStore.isLoading,
+    loadMyData: stores.UserStore.loadMyData,
   }
 })
 class Profile extends Component {
   componentDidMount() {
-    const {
-      me: { username },
-      getUser,
-    } = this.props
-    if (!username) {
-      getUser()
+    const { me, loadMyData } = this.props
+    if (!me) {
+      loadMyData()
     }
   }
 
@@ -45,15 +43,15 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  me: PropTypes.object,
+  me: PropTypes.shape({}),
   isLoading: PropTypes.bool,
-  getUser: PropTypes.func,
+  loadMyData: PropTypes.func,
 }
 
 Profile.defaultProps = {
   me: {},
   isLoading: false,
-  getUser() {},
+  loadMyData() {},
 }
 
 export default WithAuth(withTranslation()(Profile))
