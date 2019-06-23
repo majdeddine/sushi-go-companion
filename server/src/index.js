@@ -32,9 +32,8 @@ mongoose.connection.once('open', () => {
 
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(express.static(path.resolve(__dirname, '../../client/dist')))
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../client/dist/index.html'))
+  return res.sendStatus(404)
 })
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')
