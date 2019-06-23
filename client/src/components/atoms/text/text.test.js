@@ -1,6 +1,6 @@
 import React from 'react'
-import { Text } from './text'
-import { renderWithTheme } from '../../../../config/testHelper'
+import Text from './text'
+import { renderWithTheme } from '../../../config/testHelper'
 
 describe('<Text/>', () => {
   it('Should render a Text element with default props', () => {

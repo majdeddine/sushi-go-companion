@@ -1,4 +1,4 @@
-import { Auth } from 'utils'
+import { getToken } from 'utils/auth'
 
 const { API_URL } = process.env
 
@@ -7,7 +7,7 @@ const api = query =>
     method: 'POST',
     body: JSON.stringify(query),
     headers: {
-      Authorization: `bearer ${Auth.getToken()}`,
+      Authorization: `bearer ${getToken()}`,
       'Content-Type': 'application/json',
     },
   })

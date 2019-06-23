@@ -2,7 +2,7 @@ import React from 'react'
 import { Logo, Text } from 'atoms'
 import StyledHeader from './styledHeader'
 
-const Header = props => {
+const Header = () => {
   return (
     <StyledHeader>
       <Logo variant="white" size="small" />

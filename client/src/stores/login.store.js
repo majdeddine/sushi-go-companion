@@ -1,7 +1,7 @@
 import { observable, action } from 'mobx'
 import { toast } from 'react-toastify'
-import { api } from 'utils'
 import { handleLogin } from 'utils/auth'
+import { api } from './helper'
 
 class Store {
   @observable username = ''

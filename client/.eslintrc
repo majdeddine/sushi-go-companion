@@ -2,11 +2,12 @@
   "env": {
     "browser": true,
     "es6": true,
-    "jest/globals": true
+    "jest/globals": true,
+    "jsx-control-statements/jsx-control-statements": true
   },
   "parser": "babel-eslint",
-  "extends": ["airbnb", "prettier"],
   "plugins": ["jsx-control-statements", "prettier", "jest"],
+  "extends": ["airbnb", "prettier", "plugin:jsx-control-statements/recommended"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -35,6 +36,7 @@
     "react/jsx-filename-extension": 0,
     "import/prefer-default-export": 0,
     "comma-dangle": ["error", "always-multiline"],
-    "react/forbid-prop-types": 0
+    "react/forbid-prop-types": 0,
+    "react/jsx-no-undef": [2, { "allowGlobals": true }]
   }
 }
