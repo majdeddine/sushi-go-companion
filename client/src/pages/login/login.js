@@ -9,11 +9,16 @@ import Button from '@material-ui/core/Button'
 import StyledLogin from './styledLogin'
 
 @observer
-@inject(stores => ({
-  username: stores.LoginStore.username,
-  password: stores.LoginStore.password,
-  login: stores.LoginStore.login,
-}))
+@inject(stores => {
+  return {
+    username: stores.LoginStore.username,
+    password: stores.LoginStore.password,
+    isLoading: stores.LoginStore.isLoading,
+    login: stores.LoginStore.login,
+    setUsername: stores.LoginStore.setUsername,
+    setPassword: stores.LoginStore.setPassword,
+  }
+})
 class Login extends Component {
   handleOnChange = event => {
     this.props[event.target.name] = event.target.value
@@ -32,57 +37,71 @@ class Login extends Component {
   }
 
   render() {
-    const { t, username, password } = this.props
+    const { t, username, password, isLoading, setUsername, setPassword } = this.props
     return (
       <StyledLogin>
-        <Card className="content">
-          <TextField
-            id={t('username')}
-            name="username"
-            label={t('username')}
-            value={username}
-            onChange={this.handleOnChange}
-            autoFocus
-            fullWidth
-            autoComplete={t('username')}
-            onKeyPress={this.handleOnLogin}
-          />
-          <TextField
-            type="password"
-            label={t('password')}
-            name="password"
-            id={t('password')}
-            value={password}
-            onChange={this.handleOnChange}
-            autoComplete={t('password')}
-            fullWidth
-            onKeyPress={this.handleOnLogin}
-          />
+        <Choose>
+          <When condition={isLoading}>Loading ...</When>
+          <Otherwise>
+            <Card className="content">
+              <TextField
+                id={t('username')}
+                name="username"
+                label={t('username')}
+                value={username}
+                onChange={setUsername}
+                autoFocus
+                fullWidth
+                autoComplete={t('username')}
+                onKeyPress={this.handleOnLogin}
+              />
+              <TextField
+                type="password"
+                label={t('password')}
+                name="password"
+                id={t('password')}
+                value={password}
+                onChange={setPassword}
+                autoComplete={t('password')}
+                fullWidth
+                onKeyPress={this.handleOnLogin}
+              />
 
-          <div className="actions">
-            <Button onClick={this.navigateToRegister} variant="outlined">
-              {t('register')}
-            </Button>
-            <Button onClick={this.handleOnLogin} variant="contained" color="primary">
-              {t('login')}
-            </Button>
-          </div>
-        </Card>
+              <div className="actions">
+                <Button onClick={this.navigateToRegister} variant="outlined">
+                  {t('register')}
+                </Button>
+                <Button onClick={this.handleOnLogin} variant="contained" color="primary">
+                  {t('login')}
+                </Button>
+              </div>
+            </Card>
+          </Otherwise>
+        </Choose>
       </StyledLogin>
     )
   }
 }
 
 Login.propTypes = {
-  t: PropTypes.func.isRequired,
-  username: PropTypes.string.isRequired,
-  password: PropTypes.string.isRequired,
-  login: PropTypes.func.isRequired,
   history: PropTypes.object,
+  t: PropTypes.func.isRequired,
+  username: PropTypes.string,
+  password: PropTypes.string,
+  isLoading: PropTypes.bool,
+  login: PropTypes.func,
+  setUsername: PropTypes.func,
+  setPassword: PropTypes.func,
 }
 
 Login.defaultProps = {
   history: {},
+  username: '',
+  password: '',
+  isLoading: false,
+  login() {},
+  setUsername() {},
+  setPassword() {},
 }
 
 export default withTranslation()(Login)
