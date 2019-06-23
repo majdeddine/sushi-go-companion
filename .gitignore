@@ -7,3 +7,4 @@ coverage-reports
 .vscode/settings.json
 nodemon.json
 .env
+**/data

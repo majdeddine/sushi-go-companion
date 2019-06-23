@@ -12,7 +12,8 @@
     "lint": "eslint src --fix",
     "test": "jest --config ./jest.config.js",
     "prettier": "prettier 'src/**/*.js' --write",
-    "lighthouse": "lighthouse --config-path=lighthouse.config.js http://0.0.0.0:8080/"
+    "lighthouse": "lighthouse --config-path=lighthouse.config.js http://0.0.0.0:8080/",
+    "serve": "node server.js"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",
@@ -72,6 +73,7 @@
     "core-js": "^3.1.3",
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.14",
+    "express": "^4.17.1",
     "i18next": "^17.0.3",
     "i18next-browser-languagedetector": "^3.0.1",
     "jsx-control-statements": "^3.2.8",

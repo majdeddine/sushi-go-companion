@@ -12,7 +12,7 @@ import { Resolvers } from 'resolvers'
 
 const PORT = process.env.PORT || 4100
 const app = express()
-const databaseUrl = 'mongodb://localhost:27017/sushiugo'
+const databaseUrl = 'mongodb://mongo:27017/sushigo'
 
 const { ObjectId } = mongoose.Types
 // eslint-disable-next-line func-names
@@ -32,9 +32,9 @@ mongoose.connection.once('open', () => {
 
 app.use(bodyParser.json())
 app.use(cookieParser())
-app.use(express.static(path.resolve(__dirname, '../../portal/dist')))
+app.use(express.static(path.resolve(__dirname, '../../client/dist')))
 app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, '../../portal/dist/index.html'))
+  res.sendFile(path.resolve(__dirname, '../../client/dist/index.html'))
 })
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*')

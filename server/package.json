@@ -7,7 +7,8 @@
     "dev": "nodemon",
     "build": "rimraf ./dist && babel src -d ./dist",
     "start": "node dist/index.js",
-    "test:email": "mju --send -o ./dist/utils/mailer/templates"
+    "docker:start": "docker-compose -f docker-compose.yml up -d",
+    "docker:build": "docker-compose -f docker-compose.yml build"
   },
   "dependencies": {
     "axios": "^0.19.0",

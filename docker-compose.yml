@@ -1,0 +1,26 @@
+version: "2"
+services:
+  app:
+    container_name: sushigo-client
+    build: "./client/"
+    ports:
+      - "8080:8080"
+  server:
+    container_name: sushigo-server
+    restart: always
+    build: "./server/"
+    ports:
+      - "4100:4100"
+    links:
+      - mongo
+    depends_on:
+      - mongo
+    environment:
+      WAIT_HOSTS: mongo:27017
+  mongo:
+    image: mongo:4.0
+    volumes:
+      - "./data/db:/data/db"
+    expose:
+      - 27017
+    command: "mongod --smallfiles --logpath=/var/log/mongodb/mongodb.log"
