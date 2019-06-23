@@ -1,7 +1,7 @@
-import common from './webpack.common'
-import { env, html, hot, clean, analyzer, compression } from './webpack.plugins'
-import { js, image, font } from './webpack.loaders'
-import { optimization } from './webpack.optimization'
+const common = require('./webpack.common')
+const { env, html, hot, clean, analyzer, compression } = require('./webpack.plugins')
+const { js, image, font } = require('./webpack.loaders')
+const { optimization } = require('./webpack.optimization')
 
 const isDev = process.env.NODE_ENV === 'development'
 
@@ -20,4 +20,4 @@ if (isDev) {
   config.optimization = optimization
 }
 
-export default config
+module.exports = config

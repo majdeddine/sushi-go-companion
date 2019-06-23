@@ -1,6 +1,6 @@
-import path from 'path'
+const path = require('path')
 
-export default {
+module.exports = {
   'react-dom': '@hot-loader/react-dom',
   src: path.resolve(__dirname, '../src/'),
   dist: path.resolve(__dirname, '../dist/'),

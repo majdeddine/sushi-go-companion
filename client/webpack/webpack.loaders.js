@@ -20,4 +20,4 @@ const font = {
   exclude: /node_modules/,
 }
 
-export { js, image, font }
+module.exports = { js, image, font }

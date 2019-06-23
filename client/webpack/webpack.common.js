@@ -1,5 +1,5 @@
-import path from 'path'
-import ALIASES from './webpack.aliases'
+const path = require('path')
+const ALIASES = require('./webpack.aliases')
 
 require('dotenv').config()
 
@@ -7,7 +7,7 @@ const { NODE_ENV, PORT } = process.env
 
 const isDev = NODE_ENV === 'development'
 
-export default {
+module.exports = {
   mode: NODE_ENV,
   target: 'web',
   entry: [path.resolve(ALIASES.src, 'index.js')],

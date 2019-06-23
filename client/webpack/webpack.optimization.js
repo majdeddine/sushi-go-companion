@@ -1,6 +1,6 @@
-import UglifyJsPlugin from 'uglifyjs-webpack-plugin'
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 
-export const optimization = {
+module.exports = {
   minimizer: [new UglifyJsPlugin()],
   // runtimeChunk: "single",
   // splitChunks: {

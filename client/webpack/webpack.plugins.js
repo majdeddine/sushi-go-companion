@@ -1,9 +1,9 @@
-import webpack from 'webpack'
-import HtmlWebpackPlugin from 'html-webpack-plugin'
-import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
-import CompressionPlugin from 'compression-webpack-plugin'
-import nodePackage from '../package.json'
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const CompressionPlugin = require('compression-webpack-plugin')
+const nodePackage = require('../package.json')
 
 require('dotenv').config()
 
@@ -11,7 +11,7 @@ const { NODE_ENV, JWT_NAME } = process.env
 
 const isDev = NODE_ENV === 'development'
 
-export const env = new webpack.DefinePlugin({
+const env = new webpack.DefinePlugin({
   process: {
     env: {
       APP_NAME: JSON.stringify('Sushi Go!'),
@@ -22,7 +22,7 @@ export const env = new webpack.DefinePlugin({
   },
 })
 
-export const html = new HtmlWebpackPlugin({
+const html = new HtmlWebpackPlugin({
   title: 'Sushi Go!',
   filename: 'index.html',
   template: 'src/index.ejs',
@@ -34,16 +34,25 @@ export const html = new HtmlWebpackPlugin({
   },
 })
 
-export const hot = new webpack.HotModuleReplacementPlugin()
+const hot = new webpack.HotModuleReplacementPlugin()
 
-export const clean = new CleanWebpackPlugin()
+const clean = new CleanWebpackPlugin()
 
-export const analyzer = new BundleAnalyzerPlugin({
+const analyzer = new BundleAnalyzerPlugin({
   analyzerMode: 'static',
   openAnalyzer: false,
 })
 
-export const compression = new CompressionPlugin({
+const compression = new CompressionPlugin({
   filename: '[path].gz[query]',
   algorithm: 'gzip',
 })
+
+module.exports = {
+  env,
+  html,
+  hot,
+  clean,
+  analyzer,
+  compression,
+}

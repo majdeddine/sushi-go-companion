@@ -18,13 +18,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "settings": {
-    "import/resolver": {
-      "webpack": {
-        "config": "./webpack/webpack.config.babel.js"
-      }
-    }
-  },
+
   "rules": {
     "prettier/prettier": ["error"],
     "indent": ["error", 2],
