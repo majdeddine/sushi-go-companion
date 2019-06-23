@@ -10,6 +10,7 @@ import * as stores from 'stores'
 import { i18n } from 'language'
 import { Layout, Loading } from 'components'
 import GlobalStyles from 'resources/styles/global'
+import ToastifyStyles from 'resources/styles/toastify'
 
 const Login = lazy(() => import('pages/login/login'))
 
@@ -22,6 +23,7 @@ const App = () => (
         <I18nextProvider i18n={i18n}>
           <>
             <GlobalStyles />
+            <ToastifyStyles />
             <ToastContainer />
             <Router>
               <Layout>

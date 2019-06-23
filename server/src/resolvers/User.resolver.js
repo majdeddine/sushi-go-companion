@@ -58,9 +58,10 @@ const UserResolver = {
   login: async ({ username, password }) => {
     console.log(username)
     console.log(password)
-    const user = await User.findOne({ username })
-    if (!user) {
-      return new Error('User not found')
+    try {
+      const user = await User.findOne({ username })
+    } catch (err) {
+      return new Error(err)
     }
     const isMatch = await bcrypt.compare(password, user.password)
     if (isMatch) {

@@ -6,7 +6,7 @@ import { withTranslation } from 'react-i18next'
 import Card from '@material-ui/core/Card'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
-import StyledLogin from './styledLogin'
+import StyledLogin from './styles'
 
 @observer
 @inject(stores => {
@@ -26,9 +26,9 @@ class Login extends Component {
   }
 
   handleOnLogin = event => {
-    const { login } = this.props
+    const { login, history } = this.props
     if (!keycode(event) || keycode(event) === 'enter') {
-      login()
+      login(history)
     }
   }
 

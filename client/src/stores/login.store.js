@@ -28,20 +28,21 @@ class Store {
     this.password = event.target.value
   }
 
-  @action login = async (username, password, history) => {
+  @action login = async history => {
     const loginQuery = {
       query: `
         query {
-          login(username: "${username}", password: "${password}")
+          login(username: "${this.username}", password: "${this.password}")
         }
       `,
     }
     this.isLoading = true
     try {
-      const response = await api(loginQuery).json()
+      const response = await api(loginQuery)
+      const data = response.json()
       this.isLoading = false
-      handleLogin(response, history)
-      toast.success(`Welcome back ${username}`, {
+      handleLogin(data, history)
+      toast.success(`Welcome back ${this.username}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,
       })
