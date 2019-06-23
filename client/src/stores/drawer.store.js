@@ -3,7 +3,7 @@ import { observable, action } from 'mobx'
 class Store {
   @observable isOpen = false
 
-  @action.bound toggleDrawer() {
+  @action toggleDrawer = () => {
     this.isOpen = !this.isOpen
   }
 }

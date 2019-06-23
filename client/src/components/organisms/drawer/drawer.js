@@ -5,7 +5,7 @@ import Button from '@material-ui/core/Button'
 import LogoutIcon from '@material-ui/icons/ExitToApp'
 import UserIcon from '@material-ui/icons/AccountBox'
 import NewGameIcon from '@material-ui/icons/VideogameAsset'
-import Logo from 'atoms'
+import { Logo } from 'atoms'
 import hero from 'resources/images/hero.svg'
 import { handleLogout } from 'utils/auth'
 import StyledDrawer from './styles'
@@ -20,15 +20,15 @@ import StyledDrawer from './styles'
 class Drawer extends Component {
   navigateAway = page => {
     const { history } = this.props
-    if (!history.location.pathname.includes(page)) {
-      this.setState(
-        prevState => ({ burgerOpen: !prevState.burgerOpen }),
-        () => {
-          history.push(`/${page}`)
-          this.updateLinksState()
-        },
-      )
-    }
+    // if (!history.location.pathname.includes(page)) {
+    //   this.setState(
+    //     prevState => ({ burgerOpen: !prevState.burgerOpen }),
+    //     () => {
+    //       history.push(`/${page}`)
+    //       this.updateLinksState()
+    //     },
+    //   )
+    // }
   }
 
   render() {
@@ -52,7 +52,7 @@ class Drawer extends Component {
             color="primary"
             variant="outlined"
             onClick={() => this.navigateAway('profile')}
-            disabled={history.location.pathname.includes('profile')}
+            // disabled={history.location.pathname.includes('profile')}
           >
             <UserIcon />
             Profile
@@ -61,7 +61,7 @@ class Drawer extends Component {
             color="primary"
             variant="outlined"
             onClick={() => this.navigateAway('new-game')}
-            disabled={history.location.pathname.includes('new-game')}
+            // disabled={history.location.pathname.includes('new-game')}
           >
             <NewGameIcon />
             New Game
