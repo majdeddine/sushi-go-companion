@@ -17,7 +17,7 @@ const env = new webpack.DefinePlugin({
       APP_NAME: JSON.stringify('Sushi Go!'),
       APP_Version: JSON.stringify(nodePackage.version),
       NODE_ENV: JSON.stringify(NODE_ENV),
-      JWT_NAME: JSON.stringify(JWT_NAME),
+      TOKEN_NAME: JSON.stringify(JWT_NAME),
       API_URL: JSON.stringify(API_URL),
     },
   },

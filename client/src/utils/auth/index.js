@@ -15,6 +15,7 @@ export const setToken = token => {
 export const removeToken = () => localStorage.removeItem(TOKEN_NAME)
 export const handleLogin = (response, history) => {
   const res = { ...response }
+  debugger
   if (res.data) {
     // console.group('%cAuth handleLogin', 'color: green')
     // console.log({ response })

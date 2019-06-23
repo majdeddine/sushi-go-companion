@@ -1,10 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { pageContainer } from 'resources/styles/helpers'
 
-const Wrapper = styled.div`
-  ${({ theme }) => pageContainer(theme)}
-`
+const Wrapper = styled.div``
 
 Wrapper.propTypes = {
   theme: PropTypes.shape({}),

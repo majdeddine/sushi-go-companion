@@ -40,13 +40,14 @@ class Store {
     try {
       const response = await api(loginQuery)
       this.isLoading = false
-      handleLogin(response.json(), history)
+      handleLogin(response, history)
       toast.success(`Welcome back ${this.username}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,
       })
     } catch (err) {
       this.isLoading = false
+      console.log(err)
       toast.error(`Error! ${err}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,

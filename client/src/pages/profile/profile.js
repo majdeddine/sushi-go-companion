@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { observer, inject, PropTypes } from 'mobx-react'
+import { withTranslation } from 'react-i18next'
+import WithAuth from 'utils/auth/withAuthHOC'
 import { Loading } from 'components'
-import WithAuth from 'utils/auth'
 import { Badge, MyHistory } from './components'
 import StyledProfile from './styles'
 
@@ -44,7 +45,7 @@ class Profile extends Component {
 }
 
 Profile.propTypes = {
-  me: PropTypes.shape({}),
+  me: PropTypes.object,
   isLoading: PropTypes.bool,
   getUser: PropTypes.func,
 }
@@ -55,6 +56,4 @@ Profile.defaultProps = {
   getUser() {},
 }
 
-const ProfilePage = WithAuth(Profile)
-
-export { ProfilePage }
+export default WithAuth(withTranslation()(Profile))
