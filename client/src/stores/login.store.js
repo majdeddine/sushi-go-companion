@@ -40,7 +40,8 @@ class Store {
     try {
       const response = await api(loginQuery)
       this.isLoading = false
-      handleLogin(response.data, history)
+      const jwt = response.data.data.login
+      handleLogin(jwt, history)
       toast.success(`Welcome back ${this.username}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,

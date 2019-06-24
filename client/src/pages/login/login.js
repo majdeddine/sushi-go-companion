@@ -2,12 +2,34 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import keycode from 'keycode'
 import { observer, inject } from 'mobx-react'
-import { Loading } from 'components'
+import { Loading, Paper, Text } from 'components'
 import { withTranslation } from 'react-i18next'
-import Card from '@material-ui/core/Card'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import StyledLogin from './styles'
+
+const propTypes = {
+  history: PropTypes.object,
+  t: PropTypes.func.isRequired,
+  username: PropTypes.string,
+  password: PropTypes.string,
+  isLoading: PropTypes.bool,
+  isValid: PropTypes.bool,
+  login: PropTypes.func,
+  setUsername: PropTypes.func,
+  setPassword: PropTypes.func,
+}
+
+const defaultProps = {
+  history: {},
+  username: '',
+  password: '',
+  isLoading: false,
+  isValid: false,
+  login() {},
+  setUsername() {},
+  setPassword() {},
+}
 
 @observer
 @inject(stores => {
@@ -47,7 +69,10 @@ class Login extends Component {
             <Loading />
           </When>
           <Otherwise>
-            <Card className="content">
+            <Paper className="content">
+              <Text color="dark" weight="bold">
+                Sushi Go!
+              </Text>
               <TextField
                 id={t('username')}
                 name="username"
@@ -84,7 +109,7 @@ class Login extends Component {
                   {t('login')}
                 </Button>
               </div>
-            </Card>
+            </Paper>
           </Otherwise>
         </Choose>
       </StyledLogin>
@@ -92,27 +117,8 @@ class Login extends Component {
   }
 }
 
-Login.propTypes = {
-  history: PropTypes.object,
-  t: PropTypes.func.isRequired,
-  username: PropTypes.string,
-  password: PropTypes.string,
-  isLoading: PropTypes.bool,
-  isValid: PropTypes.bool,
-  login: PropTypes.func,
-  setUsername: PropTypes.func,
-  setPassword: PropTypes.func,
-}
+Login.propTypes = propTypes
 
-Login.defaultProps = {
-  history: {},
-  username: '',
-  password: '',
-  isLoading: false,
-  isValid: false,
-  login() {},
-  setUsername() {},
-  setPassword() {},
-}
+Login.defaultProps = defaultProps
 
 export default withTranslation()(Login)
