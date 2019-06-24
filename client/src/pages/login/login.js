@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import keycode from 'keycode'
 import { observer, inject } from 'mobx-react'
-import { Loading, Paper, Text } from 'components'
+import { ActionBar, Loading, Paper, Text } from 'components'
 import { withTranslation } from 'react-i18next'
 import TextField from '@material-ui/core/TextField'
-import Button from '@material-ui/core/Button'
 import StyledLogin from './styles'
 
 const propTypes = {
@@ -62,6 +61,22 @@ class Login extends Component {
 
   render() {
     const { t, username, password, isLoading, setUsername, setPassword, isValid } = this.props
+    const actions = [
+      {
+        text: t('register'),
+        action: this.navigateToRegister,
+        disabled: false,
+        color: 'primary',
+        variant: 'outlined',
+      },
+      {
+        text: t('login'),
+        action: this.handleOnLogin,
+        disabled: !isValid,
+        color: 'primary',
+        variant: 'contained',
+      },
+    ]
     return (
       <StyledLogin>
         <Choose>
@@ -69,7 +84,7 @@ class Login extends Component {
             <Loading />
           </When>
           <Otherwise>
-            <Paper className="content">
+            <Paper>
               <Text color="dark" weight="bold">
                 Sushi Go!
               </Text>
@@ -95,20 +110,7 @@ class Login extends Component {
                 fullWidth
                 onKeyPress={this.handleOnLogin}
               />
-
-              <div className="actions">
-                <Button onClick={this.navigateToRegister} variant="outlined">
-                  {t('register')}
-                </Button>
-                <Button
-                  onClick={this.handleOnLogin}
-                  variant="contained"
-                  color="primary"
-                  disabled={!isValid}
-                >
-                  {t('login')}
-                </Button>
-              </div>
+              <ActionBar alignment="right" actions={actions} />
             </Paper>
           </Otherwise>
         </Choose>

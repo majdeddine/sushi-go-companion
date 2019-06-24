@@ -3,11 +3,13 @@ const colors = {
     dark: '#2c3e50',
     light: '#f1f1f1',
   },
+  purple: '#706fd3',
   blue: '#2980b9',
+  lightBlue: '#0fbcf9',
   pink: '#c51162',
   green: '#00b894',
   amber: '#e17055',
-  red: '#d63031',
+  red: '#c0392b',
   yellow: '#f1c40f',
   snow: '#fff',
   white: '#fcfcfc',
@@ -17,7 +19,6 @@ const colors = {
     medium: '#425765',
     dark: '#263642',
   },
-  lightBlue: '#f5f8fa',
 }
 
 export default colors

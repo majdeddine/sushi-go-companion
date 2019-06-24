@@ -9,9 +9,9 @@ const Theme = {
       dark: darken(0.25, colors.asphalt),
     },
     secondary: {
-      light: lighten(0.25, colors.pink),
-      main: colors.pink,
-      dark: darken(0.25, colors.pink),
+      light: lighten(0.25, colors.purple),
+      main: colors.purple,
+      dark: darken(0.25, colors.purple),
     },
     error: {
       light: lighten(0.25, colors.red),

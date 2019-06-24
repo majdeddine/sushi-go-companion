@@ -1,19 +1,24 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { shape } from 'prop-types'
 import { pageContainer } from 'utils/style/extends'
 
-const Wrapper = styled.div(() => {
-  return `
-    ${pageContainer()}
-  `
-})
-
-Wrapper.propTypes = {
-  theme: PropTypes.shape({}),
+const propTypes = {
+  theme: shape({}),
 }
 
-Wrapper.defaultProps = {
+const defaultProps = {
   theme: {},
 }
 
-export default Wrapper
+const StyledProfile = styled.div(props => {
+  const { theme } = props
+  return `
+    ${pageContainer(theme.palette)}
+  `
+})
+
+StyledProfile.propTypes = propTypes
+
+StyledProfile.defaultProps = defaultProps
+
+export default StyledProfile

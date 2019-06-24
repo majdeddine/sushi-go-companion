@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Header from '../header/header'
 import Drawer from '../drawer/drawer'
+import StyledLayout from './styles'
 
 const propTypes = {
   children: PropTypes.node,
@@ -15,13 +16,13 @@ const defaultProps = {
 
 const Layout = ({ children, history }) => {
   return (
-    <main>
+    <StyledLayout>
       <Drawer history={history} />
       <section>
         <Header history={history} />
         {children}
       </section>
-    </main>
+    </StyledLayout>
   )
 }
 
