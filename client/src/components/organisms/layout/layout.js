@@ -6,20 +6,18 @@ import StyledLayout from './styles'
 
 const propTypes = {
   children: PropTypes.node,
-  history: PropTypes.object,
 }
 
 const defaultProps = {
   children: <p>Error</p>,
-  history: {},
 }
 
-const Layout = ({ children, history }) => {
+const Layout = ({ children }) => {
   return (
     <StyledLayout>
-      <Drawer history={history} />
+      <Drawer />
       <section>
-        <Header history={history} />
+        <Header />
         {children}
       </section>
     </StyledLayout>

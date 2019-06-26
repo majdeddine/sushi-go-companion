@@ -52,7 +52,6 @@ export const validateToken = () => {
   return false
 }
 
-export const handleLogout = history => {
-  removeToken()
-  history.push('/')
-}
+export const handleLogout = () => removeToken()
+
+export const isLoggedIn = () => validateToken()

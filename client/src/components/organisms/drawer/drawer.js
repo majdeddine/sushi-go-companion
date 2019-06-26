@@ -31,8 +31,18 @@ class Drawer extends Component {
     // }
   }
 
+  handleOnLogout = () => {
+    const { history, toggleDrawer } = this.props
+    history.push('/')
+    toggleDrawer()
+    handleLogout(history)
+  }
+
   render() {
     const { isOpen, toggleDrawer, history } = this.props
+    console.group('%cHISTORY', 'color: hotpink')
+    console.log(history)
+    console.groupEnd()
     const backgroundImage = {
       backgroundImage: `url(${hero})`,
     }
@@ -68,14 +78,7 @@ class Drawer extends Component {
           </Button>
         </main>
         <footer>
-          <Button
-            color="secondary"
-            variant="outlined"
-            onClick={() => {
-              toggleDrawer()
-              handleLogout(history)
-            }}
-          >
+          <Button color="secondary" variant="outlined" onClick={this.handleOnLogout}>
             <LogoutIcon />
             Logout
           </Button>
