@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { func, oneOf } from 'prop-types'
 import { observer, inject } from 'mobx-react'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -9,24 +9,28 @@ import StyledBurger from './styles'
 @inject(stores => {
   return {
     toggleDrawer: stores.DrawerStore.toggleDrawer,
+    isLoggedIn: stores.LoginStore.isLoggedIn,
   }
 })
 class Burger extends Component {
   render() {
-    const { toggleDrawer, color } = this.props
+    const { toggleDrawer, color, isLoggedIn } = this.props
     return (
-      <StyledBurger color={color}>
-        <IconButton onClick={toggleDrawer}>
-          <MenuIcon />
-        </IconButton>
-      </StyledBurger>
+      <If condition={isLoggedIn}>
+        <StyledBurger color={color}>
+          <IconButton onClick={toggleDrawer}>
+            <MenuIcon />
+          </IconButton>
+        </StyledBurger>
+      </If>
     )
   }
 }
 
 Burger.propTypes = {
-  toggleDrawer: PropTypes.func,
-  color: PropTypes.oneOf(['light', 'dark', 'primary', 'secondary', 'success', 'danger']),
+  toggleDrawer: func,
+  color: oneOf(['light', 'dark', 'primary', 'secondary', 'success', 'danger']),
+  isLoggedIn: func.isRequired,
 }
 
 Burger.defaultProps = {

@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx'
 import { toast } from 'react-toastify'
-import { handleLogin } from 'utils/auth'
+import { handleLogin, validateToken } from 'utils/auth'
 import { api } from './helper'
 
 const MIN_USERNAME_LENGTH = 3
@@ -12,7 +12,9 @@ class Store {
 
   @observable isLoading = false
 
-  @observable isLoggedIn = false
+  @computed get isLoggedIn() {
+    return this.username.length && validateToken()
+  }
 
   @computed get isValid() {
     return (

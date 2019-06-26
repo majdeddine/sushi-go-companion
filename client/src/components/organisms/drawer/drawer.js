@@ -45,7 +45,7 @@ class Drawer extends Component {
         classes={{ paper: 'drawerBody' }}
       >
         <header style={backgroundImage}>
-          <Logo />
+          <Logo size="large" />
         </header>
         <main>
           <Button
