@@ -57,21 +57,22 @@ const UserResolver = {
   },
   login: async ({ username, password }) => {
     console.log(username)
-    console.log(password)
+    let user
     try {
       const user = await User.findOne({ username })
+      const isMatch = await bcrypt.compare(password, user.password)
+      if (isMatch) {
+        const { _id } = user
+        const token = jwt.sign({ _id }, process.env.JWT_SECRET, {
+          expiresIn: 60 * 60 * 24,
+        })
+        return token
+      } else {
+        return new Error('Invalid credential!')
+      }
     } catch (err) {
       return new Error(err)
     }
-    const isMatch = await bcrypt.compare(password, user.password)
-    if (isMatch) {
-      const { _id } = user
-      const token = jwt.sign({ _id }, process.env.JWT_SECRET, {
-        expiresIn: 60 * 60 * 24,
-      })
-      return token
-    }
-    return new Error('Invalid credential!')
   },
 
   updateUser: async args => {

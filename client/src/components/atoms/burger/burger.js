@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { func, oneOf } from 'prop-types'
+import { func, oneOf, bool } from 'prop-types'
 import { observer, inject } from 'mobx-react'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -30,12 +30,13 @@ class Burger extends Component {
 Burger.propTypes = {
   toggleDrawer: func,
   color: oneOf(['light', 'dark', 'primary', 'secondary', 'success', 'danger']),
-  isLoggedIn: func.isRequired,
+  isLoggedIn: bool,
 }
 
 Burger.defaultProps = {
   toggleDrawer() {},
   color: 'dark',
+  isLoggedIn: false,
 }
 
 export default Burger
