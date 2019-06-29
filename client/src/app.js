@@ -16,6 +16,7 @@ import { History } from 'utils'
 
 const Four04 = lazy(() => import('pages/404/404.js'))
 const Login = lazy(() => import('pages/login/login'))
+const Register = lazy(() => import('pages/register/register.js'))
 const Profile = lazy(() => import('pages/profile/profile.js'))
 
 const muiTheme = createMuiTheme(Theme)
@@ -43,7 +44,7 @@ const App = () => (
                   <Switch>
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/login" component={Login} />
-                    {/* <Route exact path="/register" component={RegisterPage} /> */}
+                    <Route exact path="/register" component={Register} />
                     <Route exact path="/" render={() => <Redirect to="/profile" />} />
                     <Route render={() => <Four04 />} />
                   </Switch>
