@@ -1,5 +1,5 @@
 import React, { Suspense, lazy } from 'react'
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
+import { Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'mobx-react'
 import { object } from 'prop-types'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
@@ -12,6 +12,7 @@ import { i18n } from 'language'
 import { Layout, Loading } from 'components'
 import GlobalStyles from 'resources/styles/global'
 import ToastifyStyles from 'resources/styles/toastify'
+import { History } from 'utils'
 
 const Four04 = lazy(() => import('pages/404/404.js'))
 const Login = lazy(() => import('pages/login/login'))
@@ -36,7 +37,7 @@ const App = () => (
             <GlobalStyles />
             <ToastifyStyles />
             <ToastContainer />
-            <Router>
+            <Router history={History} basename="/">
               <Layout>
                 <Suspense fallback={<Loading />}>
                   <Switch>

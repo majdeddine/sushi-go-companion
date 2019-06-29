@@ -1,3 +1,4 @@
 import { Age } from './age'
+import History from './history'
 
-export { Age }
+export { Age, History }

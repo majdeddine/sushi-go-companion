@@ -12,17 +12,15 @@ const defaultProps = {
   children: <p>Error</p>,
 }
 
-const Layout = ({ children }) => {
-  return (
-    <StyledLayout>
-      <Drawer />
-      <section>
-        <Header />
-        {children}
-      </section>
-    </StyledLayout>
-  )
-}
+const Layout = ({ children }) => (
+  <StyledLayout>
+    <Drawer />
+    <section>
+      <Header />
+      {children}
+    </section>
+  </StyledLayout>
+)
 
 Layout.propTypes = propTypes
 Layout.defaultProps = defaultProps

@@ -74,6 +74,7 @@
     "cross-env": "^5.2.0",
     "dayjs": "^1.8.14",
     "express": "^4.17.1",
+    "history": "^4.9.0",
     "i18next": "^17.0.3",
     "i18next-browser-languagedetector": "^3.0.1",
     "jsx-control-statements": "^3.2.8",

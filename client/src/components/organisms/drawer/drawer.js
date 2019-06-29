@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { bool, func } from 'prop-types'
 import { observer, inject } from 'mobx-react'
 import Button from '@material-ui/core/Button'
 import LogoutIcon from '@material-ui/icons/ExitToApp'
@@ -7,38 +7,51 @@ import UserIcon from '@material-ui/icons/AccountBox'
 import NewGameIcon from '@material-ui/icons/VideogameAsset'
 import { Logo } from 'atoms'
 import hero from 'resources/images/hero.svg'
+import { History } from 'utils'
 import StyledDrawer from './styles'
+
+const propTypes = {
+  isOpen: bool,
+  toggleDrawer: func,
+  logout: func,
+}
+
+const defaultProps = {
+  isOpen: false,
+  toggleDrawer() {},
+  logout() {},
+}
 
 @observer
 @inject(stores => {
   return {
     isOpen: stores.DrawerStore.isOpen,
     toggleDrawer: stores.DrawerStore.toggleDrawer,
+    logout: stores.LoginStore.logout,
   }
 })
 class Drawer extends Component {
-  navigateAway = page => {
-    const { history } = this.props
-    // if (!history.location.pathname.includes(page)) {
-    //   this.setState(
-    //     prevState => ({ burgerOpen: !prevState.burgerOpen }),
-    //     () => {
-    //       history.push(`/${page}`)
-    //       this.updateLinksState()
-    //     },
-    //   )
-    // }
-  }
+  // navigateAway = page => {
+  // const { history } = this.props
+  // if (!history.location.pathname.includes(page)) {
+  //   this.setState(
+  //     prevState => ({ burgerOpen: !prevState.burgerOpen }),
+  //     () => {
+  //       history.push(`/${page}`)
+  //       this.updateLinksState()
+  //     },
+  //   )
+  // }
+  // }
 
   handleOnLogout = () => {
-    const { history, toggleDrawer } = this.props
-    history.push('/')
+    const { toggleDrawer, logout } = this.props
     toggleDrawer()
-    handleLogout(history)
+    logout(() => History.push('/'))
   }
 
   render() {
-    const { isOpen, toggleDrawer, history } = this.props
+    const { isOpen, toggleDrawer } = this.props
 
     const backgroundImage = {
       backgroundImage: `url(${hero})`,
@@ -59,7 +72,7 @@ class Drawer extends Component {
             color="primary"
             variant="outlined"
             onClick={() => this.navigateAway('profile')}
-            // disabled={history.location.pathname.includes('profile')}
+            disabled={History.location.pathname.includes('profile')}
           >
             <UserIcon />
             Profile
@@ -68,7 +81,7 @@ class Drawer extends Component {
             color="primary"
             variant="outlined"
             onClick={() => this.navigateAway('new-game')}
-            // disabled={history.location.pathname.includes('new-game')}
+            disabled={History.location.pathname.includes('new-game')}
           >
             <NewGameIcon />
             New Game
@@ -85,16 +98,8 @@ class Drawer extends Component {
   }
 }
 
-Drawer.propTypes = {
-  history: PropTypes.object,
-  isOpen: PropTypes.bool,
-  toggleDrawer: PropTypes.func,
-}
+Drawer.propTypes = propTypes
 
-Drawer.defaultProps = {
-  history: {},
-  isOpen: false,
-  toggleDrawer() {},
-}
+Drawer.defaultProps = defaultProps
 
 export default Drawer

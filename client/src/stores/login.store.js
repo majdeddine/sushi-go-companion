@@ -44,6 +44,7 @@ class Store {
       handleLogin(jwt)
       callback()
       this.isLoggedIn = true
+      this.password = ''
       toast.success(`Welcome back ${this.username}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,
