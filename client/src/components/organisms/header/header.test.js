@@ -1,6 +1,6 @@
 import React from 'react'
 import { renderWithTheme } from '../../../config/testHelper'
-import StyledHeader from './styledHeader'
+import StyledHeader from './styles'
 
 describe('<StyledHeader/>', () => {
   it('Should render a StyledHeader element with default props', () => {

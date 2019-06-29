@@ -2,7 +2,7 @@
 
 exports[`<StyledHeader/> Should render a StyledHeader element with default props 1`] = `
 <header
-  className="styledHeader__StyledHeader-ndunuw-0 jZMXGl"
+  className="styles__StyledHeader-fatvtl-0 jXGrvT"
 >
   <span
     aria-label="bunny emoji"
