@@ -1,1 +1,1 @@
-# Sushi Go Helper
+# Sushi Go Companion
