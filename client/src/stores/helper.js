@@ -1,11 +1,11 @@
 import axios from 'axios'
-import { getToken } from 'utils/auth'
+import { returnToken } from 'utils/auth'
 
 const { API_URL } = process.env
 
 const api = query => {
   const axiosInstance = axios.create({
-    Authorization: `bearer ${getToken()}`,
+    Authorization: `bearer ${returnToken()}`,
     timeout: 1000,
     headers: { 'Content-Type': 'application/json' },
   })

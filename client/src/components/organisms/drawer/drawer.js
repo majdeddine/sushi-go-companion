@@ -7,7 +7,6 @@ import UserIcon from '@material-ui/icons/AccountBox'
 import NewGameIcon from '@material-ui/icons/VideogameAsset'
 import { Logo } from 'atoms'
 import hero from 'resources/images/hero.svg'
-import { handleLogout } from 'utils/auth'
 import StyledDrawer from './styles'
 
 @observer
@@ -40,9 +39,7 @@ class Drawer extends Component {
 
   render() {
     const { isOpen, toggleDrawer, history } = this.props
-    console.group('%cHISTORY', 'color: hotpink')
-    console.log(history)
-    console.groupEnd()
+
     const backgroundImage = {
       backgroundImage: `url(${hero})`,
     }

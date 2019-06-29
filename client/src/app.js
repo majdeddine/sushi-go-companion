@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react'
 import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import { Provider } from 'mobx-react'
+import { object } from 'prop-types'
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 import { ThemeProvider } from 'styled-components'
 import { ToastContainer } from 'react-toastify'
@@ -12,10 +13,19 @@ import { Layout, Loading } from 'components'
 import GlobalStyles from 'resources/styles/global'
 import ToastifyStyles from 'resources/styles/toastify'
 
+const Four04 = lazy(() => import('pages/404/404.js'))
 const Login = lazy(() => import('pages/login/login'))
 const Profile = lazy(() => import('pages/profile/profile.js'))
 
 const muiTheme = createMuiTheme(Theme)
+
+const propTypes = {
+  history: object,
+}
+
+const defaultProps = {
+  history: {},
+}
 
 const App = () => (
   <Provider {...stores}>
@@ -34,7 +44,7 @@ const App = () => (
                     <Route exact path="/login" component={Login} />
                     {/* <Route exact path="/register" component={RegisterPage} /> */}
                     <Route exact path="/" render={() => <Redirect to="/profile" />} />
-                    {/* <Route render={props => <ErrorPage {...props} />} /> */}
+                    <Route render={() => <Four04 />} />
                   </Switch>
                 </Suspense>
               </Layout>
@@ -45,5 +55,9 @@ const App = () => (
     </MuiThemeProvider>
   </Provider>
 )
+
+App.propTypes = propTypes
+
+App.defaultProps = defaultProps
 
 export default App

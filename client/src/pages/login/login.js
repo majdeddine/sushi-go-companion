@@ -50,7 +50,7 @@ class Login extends Component {
   handleOnLogin = event => {
     const { login, history } = this.props
     if (!keycode(event) || keycode(event) === 'enter') {
-      login(history)
+      login(() => history.push('/profile'))
     }
   }
 

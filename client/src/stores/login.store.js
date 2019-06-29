@@ -1,6 +1,6 @@
 import { observable, action, computed } from 'mobx'
 import { toast } from 'react-toastify'
-import { handleLogin } from 'utils/auth'
+import { handleLogin, handleLogout, validateToken } from 'utils/auth'
 import { api } from './helper'
 
 const MIN_USERNAME_LENGTH = 3
@@ -11,6 +11,8 @@ class Store {
   @observable password = ''
 
   @observable isLoading = false
+
+  @observable isLoggedIn = validateToken()
 
   @computed get isValid() {
     return (
@@ -26,7 +28,7 @@ class Store {
     this.password = event.target.value
   }
 
-  @action login = async history => {
+  @action login = async callback => {
     const loginQuery = {
       query: `
         query {
@@ -39,7 +41,9 @@ class Store {
       const response = await api(loginQuery)
       this.isLoading = false
       const jwt = response.data.data.login
-      handleLogin(jwt, history)
+      handleLogin(jwt)
+      callback()
+      this.isLoggedIn = true
       toast.success(`Welcome back ${this.username}`, {
         position: toast.POSITION.BOTTOM_CENTER,
         autoClose: 2000,
@@ -51,6 +55,12 @@ class Store {
         autoClose: 2000,
       })
     }
+  }
+
+  @action logout = callback => {
+    handleLogout()
+    this.isLoggedIn = false
+    callback()
   }
 }
 
