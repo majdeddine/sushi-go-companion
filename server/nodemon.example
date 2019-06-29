@@ -3,17 +3,19 @@
   "ignore": [".git", "node_modules"],
   "verbose": true,
   "watch": ["src"],
+  "ext": "js json",
+  "exec": "babel-node --inspect ./src/index.js",
   "env": {
-    "APP_NAME": "Shushi Go!",
+    "APP_NAME": "Sushi Go!",
     "NODE_ENV": "development",
-    "PORT": 4100,
+    "PORT": ,
     "API_KEY": "",
+    "DB_USER": "",
+    "DB_PASS": "",
     "JWT_SECRET": "",
     "SMTP": "",
     "EMAIL_ADDRESS": "",
     "EMAIL_PASSWORD": "",
     "EMAIL_PORT": 
-  },
-  "ext": "js json",
-  "exec": "babel-node --inspect ./src/index.js"
+  }
 }
