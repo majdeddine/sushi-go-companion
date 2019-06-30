@@ -1,8 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<StyledHeader/> Should render a StyledHeader element with default props 1`] = `
+.c0 {
+  height: 50px;
+  background-color: #c51162;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-flex-pack: start;
+  justify-content: flex-start;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.c0 > div:last-of-type:not(:only-child) {
+  margin-left: auto;
+}
+
 <header
-  className="styles__StyledHeader-fatvtl-0 jXGrvT"
+  className="c0"
 >
   <span
     aria-label="bunny emoji"
