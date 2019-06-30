@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import { object, func, string, bool } from 'prop-types'
 import keycode from 'keycode'
 import { observer, inject } from 'mobx-react'
 import { ActionBar, Loading, Paper, Text } from 'components'
@@ -8,15 +8,14 @@ import TextField from '@material-ui/core/TextField'
 import StyledLogin from './styles'
 
 const propTypes = {
-  history: PropTypes.object,
-  t: PropTypes.func.isRequired,
-  username: PropTypes.string,
-  password: PropTypes.string,
-  isLoading: PropTypes.bool,
-  isValid: PropTypes.bool,
-  login: PropTypes.func,
-  setUsername: PropTypes.func,
-  setPassword: PropTypes.func,
+  history: object,
+  t: func.isRequired,
+  username: string,
+  password: string,
+  isLoading: bool,
+  isValid: bool,
+  login: func,
+  setStoreValue: func,
 }
 
 const defaultProps = {
@@ -26,8 +25,7 @@ const defaultProps = {
   isLoading: false,
   isValid: false,
   login() {},
-  setUsername() {},
-  setPassword() {},
+  setStoreValue() {},
 }
 
 @observer
@@ -38,15 +36,10 @@ const defaultProps = {
     isLoading: stores.LoginStore.isLoading,
     isValid: stores.LoginStore.isValid,
     login: stores.LoginStore.login,
-    setUsername: stores.LoginStore.setUsername,
-    setPassword: stores.LoginStore.setPassword,
+    setStoreValue: stores.LoginStore.setStoreValue,
   }
 })
 class Login extends Component {
-  handleOnChange = event => {
-    this.props[event.target.name] = event.target.value
-  }
-
   handleOnLogin = event => {
     const { login, history } = this.props
     if (!keycode(event) || keycode(event) === 'enter') {
@@ -60,7 +53,8 @@ class Login extends Component {
   }
 
   render() {
-    const { t, username, password, isLoading, setUsername, setPassword, isValid } = this.props
+    const { t, username, password, isLoading, setStoreValue, isValid } = this.props
+    const { APP_NAME } = process.env
     const actions = [
       {
         text: t('register'),
@@ -86,14 +80,14 @@ class Login extends Component {
           <Otherwise>
             <Paper>
               <Text color="dark" weight="bold">
-                Sushi Go!
+                {APP_NAME}
               </Text>
               <TextField
                 id={t('username')}
                 name="username"
                 label={t('username')}
                 value={username}
-                onChange={setUsername}
+                onChange={setStoreValue}
                 autoFocus
                 fullWidth
                 autoComplete={t('username')}
@@ -105,7 +99,7 @@ class Login extends Component {
                 name="password"
                 id={t('password')}
                 value={password}
-                onChange={setPassword}
+                onChange={setStoreValue}
                 autoComplete={t('password')}
                 fullWidth
                 onKeyPress={this.handleOnLogin}

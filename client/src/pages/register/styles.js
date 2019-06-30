@@ -40,7 +40,7 @@ export const StyledSelect = styled(Select)`
   }
   .avatarMenu {
     width: 50px;
-    minheight: 50px;
+    min-height: 50px;
   }
 `
 

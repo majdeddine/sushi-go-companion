@@ -1,5 +1,6 @@
-import LoginStore from './login.store'
-import UserStore from './user.store'
 import DrawerStore from './drawer.store'
+import LoginStore from './login.store'
+import RegistrationStore from './registration.store'
+import UserStore from './user.store'
 
-export { LoginStore, UserStore, DrawerStore }
+export { DrawerStore, LoginStore, RegistrationStore, UserStore }

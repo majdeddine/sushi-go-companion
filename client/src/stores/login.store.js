@@ -20,12 +20,9 @@ class Store {
     )
   }
 
-  @action.bound setUsername(event) {
-    this.username = event.target.value
-  }
-
-  @action.bound setPassword(event) {
-    this.password = event.target.value
+  @action setStoreValue = event => {
+    const { name, value } = event.target
+    this[name] = value
   }
 
   @action login = async callback => {
