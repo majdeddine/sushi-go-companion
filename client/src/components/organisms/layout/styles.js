@@ -1,15 +1,24 @@
 import styled from 'styled-components'
+import { pageContainer } from 'utils/style/extends'
+import { Theme as defaultTheme } from 'resources/styles/theme'
 
-const StyledLayout = styled.main(() => {
+const StyledLayout = styled.main(props => {
+  const theme = {
+    ...defaultTheme,
+    ...props.theme,
+  }
   return `
-    section {
+    & > section {
       display: flex;
       flex-direction: column;
       width: 100vw;
       height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
+      overflow: hidden;
+      & > main {
+        ${pageContainer(theme.palette)}
+      }
     }
+
   `
 })
 

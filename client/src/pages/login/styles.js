@@ -13,7 +13,7 @@ const defaultProps = {
 const StyledLogin = styled.div(props => {
   const { theme } = props
   return `
-    ${pageContainer(theme.palette)}
+
     div:not(:last-of-type) {
       margin-bottom: 12px
     }

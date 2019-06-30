@@ -13,7 +13,7 @@ const defaultProps = {
 const StyledProfile = styled.div(props => {
   const { theme } = props
   return `
-    ${pageContainer(theme.palette)}
+    
   `
 })
 

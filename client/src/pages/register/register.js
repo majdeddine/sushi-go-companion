@@ -1,14 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { withTranslation } from 'react-i18next'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import Select from '@material-ui/core/Select'
 import MenuItem from '@material-ui/core/MenuItem'
-import Card from '@material-ui/core/Card'
 // import { Auth } from 'utils'
 // import { AuthQueries } from 'gql'
 // import { getErrorField } from 'utils/errors'
+import { ActionBar, Text, Paper } from 'components'
 import AVATARS from 'resources/images/avatars'
 import StyledRegistration from './styles'
 import validation, { isFormValid } from './validation'
@@ -110,16 +111,38 @@ class RegisterPage extends React.Component {
       tempUser: { forename, surname, username, password, confirm, email, avatar },
     } = this.state
 
+    const { t, isValid = false } = this.props
     const { validationObj } = this.state
     const { APP_NAME } = process.env
+
+    const actions = [
+      {
+        text: t('cancel'),
+        action: this.handleOnCancel,
+        disabled: false,
+        color: 'primary',
+        variant: 'outlined',
+      },
+      {
+        text: t('register'),
+        action: this.handleOnSubmit,
+        disabled: !isValid,
+        color: 'primary',
+        variant: 'contained',
+      },
+    ]
     return (
       <StyledRegistration>
         <div className="header">
-          <h1>{APP_NAME}</h1>
-          <h3>Register for a new account</h3>
+          <Text color="primary" size="large" weight="bold">
+            {APP_NAME}
+          </Text>
+          <Text color="secondary" size="small" weight="thin">
+            {t('Register a new account')}
+          </Text>
         </div>
 
-        <Card className="content">
+        <Paper className="content">
           <TextField
             type="text"
             name="forename"
@@ -216,15 +239,16 @@ class RegisterPage extends React.Component {
             autoComplete="confirm password"
             fullWidth
           />
-        </Card>
-        <div className="actions">
+        </Paper>
+        <ActionBar alignment="right" actions={actions} />
+        {/* <div className="actions">
           <Button onClick={this.handleOnCancel} variant="outlined">
             Cancel
           </Button>
           <Button onClick={this.handleOnSubmit} color="primary" variant="contained">
             Register
           </Button>
-        </div>
+        </div> */}
       </StyledRegistration>
     )
   }
@@ -240,4 +264,4 @@ RegisterPage.defaultProps = {
   history: {},
 }
 
-export default RegisterPage
+export default withTranslation()(RegisterPage)

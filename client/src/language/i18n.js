@@ -1,14 +1,16 @@
 import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
-import en from './en/en'
+import { en, ir } from './locales'
 
 i18n.use(LanguageDetector).init({
   // we init with resources
+  // lng: 'ir',
   resources: {
     en,
+    ir,
   },
   fallbackLng: 'en',
-  debug: false,
+  debug: true,
 
   // have a common namespace used around the full app
   ns: ['translations'],

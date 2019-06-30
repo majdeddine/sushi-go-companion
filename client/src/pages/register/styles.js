@@ -3,25 +3,25 @@ import styled from 'styled-components'
 const StyledRegistration = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
-  width: 100%;
-  height: 100%;
   .header {
-    width: 100%;
-    height: 100px;
-    padding: 0 12px;
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    img {
-      width: 75px;
-      margin-right: 12px;
-    }
     h1 {
       font-family: ${({ theme }) => theme.fontHeading};
-      color: ${({ theme }) => theme.font.light};
+      color: ${({ theme }) => theme.font.dark};
+      font-size: 8vw;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+    h3 {
+      font-family: ${({ theme }) => theme.fontHeading};
+      color: ${({ theme }) => theme.font.dark};
       font-size: 8vw;
       line-height: 1;
       text-transform: uppercase;
@@ -32,7 +32,6 @@ const StyledRegistration = styled.div`
     width: 90%;
     margin: 12px 0;
     padding: 16px 22px 32px;
-    overflow-y: auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

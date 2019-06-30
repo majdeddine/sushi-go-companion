@@ -17,7 +17,7 @@ const Layout = ({ children }) => (
     <Drawer />
     <section>
       <Header />
-      {children}
+      <main>{children}</main>
     </section>
   </StyledLayout>
 )

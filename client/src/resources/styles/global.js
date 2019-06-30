@@ -116,8 +116,7 @@ const GlobalStyles = createGlobalStyle`
   #app {
     width: 100vw;
     min-height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
   }
 `
 
