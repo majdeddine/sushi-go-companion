@@ -2,6 +2,8 @@ import i18n from 'i18next'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import { en, ir } from './locales'
 
+const { NODE_ENV } = process.env
+
 i18n.use(LanguageDetector).init({
   // we init with resources
   // lng: 'ir',
@@ -10,7 +12,7 @@ i18n.use(LanguageDetector).init({
     ir,
   },
   fallbackLng: 'en',
-  debug: true,
+  debug: NODE_ENV === 'development',
 
   // have a common namespace used around the full app
   ns: ['translations'],

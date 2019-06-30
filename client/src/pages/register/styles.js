@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import Select from '@material-ui/core/Select'
 
 const StyledRegistration = styled.div`
   display: flex;
@@ -6,74 +7,47 @@ const StyledRegistration = styled.div`
   justify-content: flex-start;
   align-items: center;
   align-self: flex-start;
+  flex: 1;
+  width: 100%;
   .header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    h1 {
-      font-family: ${({ theme }) => theme.fontHeading};
-      color: ${({ theme }) => theme.font.dark};
-      font-size: 8vw;
-      line-height: 1;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-    h3 {
-      font-family: ${({ theme }) => theme.fontHeading};
-      color: ${({ theme }) => theme.font.dark};
-      font-size: 8vw;
-      line-height: 1;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-  }
-  .content {
-    width: 90%;
-    margin: 12px 0;
-    padding: 16px 22px 32px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    & > div:first-of-type,
-    & > div:nth-of-type(2) {
-      width: 49%;
-    }
-    & > div:nth-of-type(4) {
-      flex: 1;
-    }
-    & > div:not(:nth-of-type(1)),
-    & > div:not(:nth-of-type(2)) {
-      margin-top: 24px;
-    }
-    .avatar {
-      margin-right: 14px;
-      & > div {
-        cursor: pointer;
-      }
-      .avatar-image {
-        width: 50px;
-      }
-      input[name='avatar'] + svg {
-        display: none;
-      }
-    }
-  }
-  .actions {
     width: 100%;
+    margin-bottom: 12px;
+  }
+  .formContainer {
+    flex: 1;
+    overflow-y: auto;
     display: flex;
-    padding: 12px;
-    button {
-      width: 47.5%;
-      height: 45px;
-      &:first-of-type {
-        background-color: ${({ theme }) => theme.white};
-      }
-      &:not(:first-of-type) {
-        margin-left: 5%;
-      }
+    flex-direction: column;
+    width: 100%;
+    justify-content: space-around;
+  }
+`
+
+export const StyledSelect = styled(Select)`
+  width: 80px;
+  &:before,
+  &:after {
+    display: none;
+  }
+  & > div:first-of-type {
+    & > div:first-of-type {
+      padding: 0;
     }
+  }
+  .avatarMenu {
+    width: 50px;
+    minheight: 50px;
+  }
+`
+
+export const StyledAvatar = styled.img`
+  width: 50px;
+  img {
+    width: 50px;
   }
 `
 

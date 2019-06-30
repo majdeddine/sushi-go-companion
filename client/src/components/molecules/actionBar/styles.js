@@ -18,11 +18,29 @@ const styles = styled.div(props => {
     flex-direction: row;
     align-items: center;
     justify-content: ${alignmentMapper(alignment)};
-    padding: 4px;
+    padding: 4px 0;
     margin: 6px 0;
     button {
       margin: 0 6px;
     }
+
+    ${alignment === 'right' &&
+      `
+      button {
+        &:last-of-type {
+          margin-right: 0;
+        }
+      } 
+    `}
+
+    ${alignment === 'left' &&
+      `
+    button {
+      &:first-of-type {
+        margin-left: 0;
+      }
+    } 
+  `}
   `
 })
 
