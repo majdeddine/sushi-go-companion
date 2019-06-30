@@ -1,17 +1,10 @@
 import styled from 'styled-components'
-import { shape } from 'prop-types'
-import { pageContainer } from 'utils/style/extends'
 
-const propTypes = {
-  theme: shape({}),
-}
+const propTypes = {}
 
-const defaultProps = {
-  theme: {},
-}
+const defaultProps = {}
 
-const StyledProfile = styled.div(props => {
-  const { theme } = props
+const StyledProfile = styled.div(() => {
   return `
     
   `
