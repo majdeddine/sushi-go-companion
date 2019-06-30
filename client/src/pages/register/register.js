@@ -1,14 +1,12 @@
 import React from 'react'
 import { string, bool, func, object } from 'prop-types'
 import { withTranslation } from 'react-i18next'
-import keycode from 'keycode'
 import TextField from '@material-ui/core/TextField'
 import MenuItem from '@material-ui/core/MenuItem'
 import { observer, inject } from 'mobx-react'
 import { ActionBar, Loading, Paper, Text } from 'components'
 import AVATARS from 'resources/images/avatars'
 import StyledRegistration, { StyledSelect, StyledAvatar } from './styles'
-import validation, { isFormValid } from './validation'
 
 const propTypes = {
   history: object,
@@ -22,6 +20,7 @@ const propTypes = {
   isLoading: bool,
   setStoreValue: func,
   submit: func,
+  resetFields: func,
   isValid: bool,
   t: func.isRequired,
 }
@@ -39,6 +38,7 @@ const defaultTypes = {
   isValid: false,
   setStoreValue() {},
   submit() {},
+  resetFields() {},
 }
 
 @observer
@@ -54,19 +54,21 @@ const defaultTypes = {
     isLoading: stores.RegistrationStore.isLoading,
     setStoreValue: stores.RegistrationStore.setStoreValue,
     submit: stores.RegistrationStore.submit,
+    isValid: stores.RegistrationStore.isValid,
+    resetFields: stores.RegistrationStore.resetFields,
   }
 })
 class RegisterPage extends React.Component {
   handleOnSubmit = event => {
     const { submit, history } = this.props
-    if (!keycode(event) || keycode(event) === 'enter') {
+    if (!event.key || event.key === 'Enter') {
       submit(() => history.push('/profile'))
     }
   }
 
   handleOnCancel = () => {
-    // TODO: clear store?
-    const { history } = this.props
+    const { history, resetFields } = this.props
+    resetFields()
     history.push('/')
   }
 

@@ -1,6 +1,7 @@
 import { observable, action, computed } from 'mobx'
 import { toast } from 'react-toastify'
-import {} from 'utils/auth'
+import { handleLogin } from 'utils/auth'
+import LoginStore from './login.store'
 import { api } from './helper'
 
 class Store {
@@ -25,35 +26,63 @@ class Store {
     this[name] = value
   }
 
-  // @action login = async callback => {
-  //   const loginQuery = {
-  //     query: `
-  //       query {
-  //         login(username: "${this.username}", password: "${this.password}")
-  //       }
-  //     `,
-  //   }
-  //   this.isLoading = true
-  //   try {
-  //     const response = await api(loginQuery)
-  //     this.isLoading = false
-  //     const jwt = response.data.data.login
-  //     handleLogin(jwt)
-  //     callback()
-  //     this.isLoggedIn = true
-  //     this.password = ''
-  //     toast.success(`Welcome back ${this.username}`, {
-  //       position: toast.POSITION.BOTTOM_CENTER,
-  //       autoClose: 2000,
-  //     })
-  //   } catch (err) {
-  //     this.isLoading = false
-  //     toast.error(`Error! ${err[0].message}`, {
-  //       position: toast.POSITION.BOTTOM_CENTER,
-  //       autoClose: 2000,
-  //     })
-  //   }
-  // }
+  @computed get isValid() {
+    return (
+      this.forename &&
+      this.surname &&
+      this.email &&
+      this.password &&
+      this.ConfirmPassword &&
+      this.password === this.ConfirmPassword
+    )
+  }
+
+  @action submit = async callback => {
+    const registrationQuery = {
+      query: `
+      mutation {
+        register (
+          forename: "${this.forename}"
+          surname: "${this.surname}"
+          email: "${this.email}"
+          username: "${this.username}"
+          password: "${this.password}"
+          avatar: "${this.avatar}"
+        )
+      }
+      `,
+    }
+    this.isLoading = true
+    try {
+      const response = await api(registrationQuery)
+      this.isLoading = false
+      const jwt = response.data.data.register
+      handleLogin(jwt)
+      callback()
+      LoginStore.isLoggedIn = true
+      this.resetFields()
+      toast.success('Registration successful!', {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 2000,
+      })
+    } catch (err) {
+      this.isLoading = false
+      toast.error(`Error! ${err[0].message}`, {
+        position: toast.POSITION.BOTTOM_CENTER,
+        autoClose: 2000,
+      })
+    }
+  }
+
+  @action resetFields = () => {
+    this.forename = ''
+    this.surname = ''
+    this.email = ''
+    this.username = ''
+    this.password = ''
+    this.ConfirmPassword = ''
+    this.avatar = 'placeholder'
+  }
 }
 
 const RegistrationStore = new Store()

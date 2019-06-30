@@ -17,10 +17,8 @@ import StyledProfile from './styles'
 })
 class Profile extends Component {
   componentDidMount() {
-    const { me, loadMyData } = this.props
-    if (!me) {
-      loadMyData()
-    }
+    const { loadMyData } = this.props
+    loadMyData()
   }
 
   render() {

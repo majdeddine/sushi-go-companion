@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { object, func, string, bool } from 'prop-types'
-import keycode from 'keycode'
 import { observer, inject } from 'mobx-react'
 import { ActionBar, Loading, Paper, Text } from 'components'
 import { withTranslation } from 'react-i18next'
@@ -42,7 +41,7 @@ const defaultProps = {
 class Login extends Component {
   handleOnLogin = event => {
     const { login, history } = this.props
-    if (!keycode(event) || keycode(event) === 'enter') {
+    if (!event.key || event.key === 'Enter') {
       login(() => history.push('/profile'))
     }
   }
