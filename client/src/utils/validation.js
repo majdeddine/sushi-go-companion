@@ -37,16 +37,17 @@ const validateField = (validation, input, key) => {
 }
 
 const validation = input => {
-  const validation = { ...validateObject }
-  Object.keys(validation).forEach(key => {
-    validation[key] = validateField(validation[key], input[key], key)
+  const validationObj = { ...validateObject }
+  Object.keys(validationObj).forEach(key => {
+    validationObj[key] = validateField(validationObj[key], input[key], key)
   })
-  return validation
+  return validationObj
 }
 
-const isFormValid = validation => {
-  Object.keys(validation).forEach(key => {
-    if (validation[key].error) {
+const isFormValid = validationObj => {
+  // eslint-disable-next-line consistent-return
+  Object.keys(validationObj).forEach(key => {
+    if (validationObj[key].error) {
       return false
     }
   })
