@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { NabigationBar } from 'molecules'
 import Header from '../header/header'
 import Drawer from '../drawer/drawer'
 import StyledLayout from './styles'
@@ -14,9 +15,10 @@ const defaultProps = {
 
 const Layout = ({ children }) => (
   <StyledLayout>
-    <Drawer />
+    {/* <Drawer /> */}
     <section>
       <Header />
+      <NabigationBar />
       <main>{children}</main>
     </section>
   </StyledLayout>

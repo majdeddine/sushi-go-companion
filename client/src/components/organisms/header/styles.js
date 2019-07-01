@@ -7,8 +7,8 @@ const StyledHeader = styled.header`
   justify-content: flex-start;
   align-items: center;
   padding: 0 16px;
-  & > div:last-of-type:not(:only-child) {
-    margin-left: auto;
+  & > div:first-of-type {
+    margin-right: 16px;
   }
 `
 

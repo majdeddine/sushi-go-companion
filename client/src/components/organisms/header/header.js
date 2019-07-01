@@ -1,12 +1,17 @@
 import React from 'react'
-import { Logo, Burger } from 'atoms'
+import { Logo, Text } from 'atoms'
 import StyledHeader from './styles'
+
+const { APP_NAME } = process.env
 
 const Header = () => {
   return (
     <StyledHeader>
       <Logo variant="white" size="small" />
-      <Burger color="light" />
+      <Text color="light" weight="bold">
+        {APP_NAME}
+      </Text>
+      {/* <Burger color="light" /> */}
     </StyledHeader>
   )
 }
