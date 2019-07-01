@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { NabigationBar } from 'molecules'
 import Header from '../header/header'
-import Drawer from '../drawer/drawer'
+// import Drawer from '../drawer/drawer'
 import StyledLayout from './styles'
 
 const propTypes = {
