@@ -19,8 +19,8 @@ exports[`<StyledHeader/> Should render a StyledHeader element with default props
   padding: 0 16px;
 }
 
-.c0 > div:last-of-type:not(:only-child) {
-  margin-left: auto;
+.c0 > div:first-of-type {
+  margin-right: 16px;
 }
 
 <header
