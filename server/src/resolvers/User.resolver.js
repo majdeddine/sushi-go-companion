@@ -56,7 +56,6 @@ const UserResolver = {
     return token
   },
   login: async ({ username, password }) => {
-    console.log(username)
     let user
     try {
       const user = await User.findOne({ username })
